@@ -267,3 +267,27 @@
   .music-card-copy{padding:10px}
   .music-card-copy h3{font-size:17px}
 }
+
+
+/* === MOBILE FIX 2 + SOCIAL LINKS + GÄSTEBUCH === */
+.stream-subhead{margin:28px 0 8px;font-size:15px;letter-spacing:1.2px;color:#dcecff}.social-head{margin-top:30px}.social-buttons a{border-color:#27577b}.guestbook-panel{display:flex;align-items:center;justify-content:center}.guestbook-card{width:min(760px,100%);border:1px solid #174a70;border-radius:24px;background:linear-gradient(145deg,#071525,#04101c);padding:34px;box-shadow:0 18px 50px #0007}.guestbook-card h2{font-size:clamp(38px,4vw,58px);margin:0 0 12px}.guestbook-card>p:not(.eyebrow){color:#9eb0c1;line-height:1.55}.guestbook-form{display:grid;gap:14px;margin-top:24px}.guestbook-form label{display:grid;gap:7px;color:#b9d2e3;font-size:12px;font-weight:900;letter-spacing:.5px}.guestbook-form input,.guestbook-form textarea{width:100%;border:1px solid #174a70;border-radius:13px;background:#030b15;color:#f5f8ff;padding:13px 14px;font:inherit;outline:none}.guestbook-form textarea{resize:vertical;min-height:150px}.guestbook-form input:focus,.guestbook-form textarea:focus{border-color:#36caff;box-shadow:0 0 0 3px #00aaff16}.guestbook-send{justify-self:start;border:1px solid #20bfff;background:#0a3150;color:#fff;border-radius:28px;padding:13px 18px;font-weight:900;letter-spacing:.7px;cursor:pointer}.guestbook-send:hover{background:#0b5d91}.guestbook-form small{color:#70889c;line-height:1.4}
+@media(max-width:950px){
+  /* HOME: SMEETY nicht mehr horizontal zusammendrücken */
+  .home-content-3d .home-copy h1{font-size:clamp(38px,11.2vw,48px);letter-spacing:-1.2px;line-height:.9;max-width:100%}
+  .home-content-3d .home-copy h1 span{display:inline-block;letter-spacing:-.6px;-webkit-text-stroke:1.5px #19bfff}
+  /* PROJEKTE: feste Bühnenhöhe/Overflow aus Desktop-Regeln mobil vollständig aufheben */
+  .projects-panel{overflow:visible!important;height:auto!important;min-height:calc(100vh - 120px)!important;padding-bottom:96px}
+  .projects-home,.project-detail{height:auto!important;min-height:0!important;overflow:visible!important}
+  .projects-home.active,.project-detail.active{display:block!important}
+  .project-grid{display:grid!important;grid-template-columns:1fr!important;grid-auto-rows:auto!important;height:auto!important;overflow:visible!important}
+  .project-card,.project-card-featured{height:auto!important;min-height:0!important;display:block!important;overflow:hidden}
+  .project-card-featured>img{display:block;width:100%!important;height:auto!important;aspect-ratio:1/1;object-fit:contain!important}
+  .project-card-body{display:block!important;height:auto!important;align-self:auto!important}
+  .project-open{position:static!important;display:inline-block!important;margin-top:8px!important;visibility:visible!important}
+  .project-side-stack{display:grid!important;grid-template-rows:auto!important;height:auto!important}
+  .project-mini-card{height:auto!important;min-height:0!important}
+  .project-detail.active{display:block!important}
+  /* Streaming und Gästebuch */
+  .streaming-panel{padding:28px 20px 96px}.stream-buttons{gap:10px;margin-top:14px}.stream-buttons a{padding:13px 17px;font-size:13px}.stream-subhead{margin-top:24px}.guestbook-panel{display:none;padding:24px 16px 96px}.guestbook-panel.active{display:flex}.guestbook-card{padding:24px 18px;border-radius:20px}.guestbook-card h2{font-size:clamp(34px,10vw,44px);line-height:1.02}.guestbook-send{width:100%;font-size:12px}.guestbook-form textarea{min-height:180px}
+}
+@media(max-width:430px){.home-content-3d .home-copy h1{font-size:clamp(36px,10.5vw,43px);letter-spacing:-.8px}.reg-tab{min-width:100px}.stream-buttons{display:grid;grid-template-columns:1fr 1fr}.stream-buttons a{text-align:center}}

@@ -89,3 +89,18 @@ const initial=location.hash.slice(1);if(tabs.some(t=>t.dataset.panel===initial))
   root.parentElement.addEventListener('wheel',e=>{if(Math.abs(e.deltaX)>Math.abs(e.deltaY)&&Math.abs(e.deltaX)>20){e.preventDefault();turn(e.deltaX>0?1:-1)}},{passive:false});
   render();
 })();
+
+// Gästebuch: bereitet eine E-Mail vor, ohne Daten auf der Website zu speichern.
+(() => {
+  const form=document.getElementById('guestbook-form');
+  if(!form)return;
+  form.addEventListener('submit',e=>{
+    e.preventDefault();
+    const name=(document.getElementById('guest-name')?.value||'').trim();
+    const subject=(document.getElementById('guest-subject')?.value||'').trim()||'Gästebuch – Nachricht von der Blackmagic Smeety Homepage';
+    const message=(document.getElementById('guest-message')?.value||'').trim();
+    if(!message)return;
+    const body=`Hallo Blackmagic Smeety,\n\n${message}\n\n${name?`Viele Grüße\n${name}`:'Viele Grüße'}`;
+    window.location.href=`mailto:blackmagic.smeety@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+})();
