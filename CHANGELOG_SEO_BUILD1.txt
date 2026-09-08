@@ -1,0 +1,15 @@
+BLACKMAGIC SMEETY HOMEPAGE – SEO BUILD1
+Datum: 08.09.2026
+Basis: HOMEPAGE COUNTER1
+
+- sitemap.xml ergänzt
+- robots.txt ergänzt
+- Canonical URL für Startseite ergänzt
+- SEO Title und Meta Description der Startseite optimiert
+- robots Meta ergänzt
+- Open Graph / Social-Media-Metadaten ergänzt
+- Me, Myself and I: Canonical, absolute OG-Bild-URL und OG-URL ergänzt
+- GoatCounter unverändert erhalten
+- Keine optischen/Layout-Änderungen
+
+WICHTIG: Die separat bei GitHub hochgeladene Google Search Console Bestätigungsdatei google9ee62da2c471c239.html nicht löschen.

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://blackmagic-smeety.github.io/sitemap.xml
