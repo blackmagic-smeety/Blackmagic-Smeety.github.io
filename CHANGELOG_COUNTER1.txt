@@ -1,0 +1,10 @@
+BLACKMAGIC SMEETY HOMEPAGE – COUNTER1
+
+Basis: 3D BUILD1 FIX1
+
+Änderung:
+- GoatCounter Tracking integriert
+- Konto: blackmagic-smeety.goatcounter.com
+- Website: blackmagic-smeety.github.io
+- Keine sichtbare Layout- oder Designänderung
+- Bestehende Inhalte, Bilder, Songs, Projekte und 3D-Karussell unverändert
