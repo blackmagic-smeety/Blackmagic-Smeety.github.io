@@ -1,0 +1,28 @@
+BLACKMAGIC SMEETY HOMEPAGE — MOBILE FIX 1
+Datum: 08.09.2026
+
+Basis: Blackmagic_Smeety_HOMEPAGE_SEO_BUILD1
+
+Geändert wurde ausschließlich die responsive CSS-Darstellung für Smartphones/Tablets bis 950 px.
+
+Korrekturen:
+- Musikbereich erhält ein echtes Mobile-Layout mit kompakten horizontalen Songkarten.
+- Cover werden vollständig dargestellt (object-fit: contain) und laufen nicht mehr aus den Karten.
+- Browser-Standarddarstellung der Song-Buttons/weiße Flächen auf Mobilgeräten wird überschrieben.
+- Überschrift, Suchfeld und Songanzahl passen sich kleinen Displays sauber an.
+- 3D-Homebereich wird innerhalb der mobilen Breite gehalten.
+- Projekt- und Songdetail-Elemente werden gegen horizontales Überlaufen abgesichert.
+- Rechtliche Navigation unten wurde auf Mobilgeräten kompakter gestaltet.
+- Zusätzlicher unterer Abstand verhindert, dass die feste Rechtsleiste Inhalte verdeckt.
+
+Unverändert:
+- Desktop-Layout ab 951 px
+- Alle Bilder und bestehenden Assets
+- Inhalte, Songs, Texte und Links
+- Google-/SEO-Metadaten
+- robots.txt und sitemap.xml
+- GoatCounter Tracking
+- JavaScript-Funktionen und Navigation
+
+WICHTIG:
+Die bereits auf GitHub vorhandene Google-Verifizierungsdatei google9ee62da2c471c239.html darf beim Upload nicht gelöscht werden.
