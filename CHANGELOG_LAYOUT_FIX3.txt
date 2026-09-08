@@ -1,0 +1,14 @@
+Blackmagic Smeety Homepage — Layout Fix 3
+
+Basis: MUSIK_LAYOUT2 / verbindlicher Projekte-Master
+
+Änderungen:
+- Musik-Karten kompakter gestaltet.
+- Vollständige Coverdarstellung mit object-fit: contain statt Beschnitt.
+- Musikbibliothek auf 4 x 3 Karten pro Desktop-Ansicht optimiert.
+- Waiting Inside Detailansicht kompakter, Textbereich begrenzt.
+- Respekt vor dem Leben / Respect for Life: Sprachkarten deutlich kompakter.
+- Suno-Buttons nicht mehr über die komplette Kartenbreite.
+- Projektkarten kompakter.
+- World-Song-Cover ebenfalls vollständig sichtbar.
+- Keine neuen Bilder erzeugt.

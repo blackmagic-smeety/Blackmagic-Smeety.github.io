@@ -1,0 +1,8 @@
+BLACKMAGIC SMEETY HOMEPAGE – 3D BUILD 1
+Basis: SONGS2 / Layout Fix 3
+- Startseiten-Textblock kompakter gestaltet.
+- Sieben freigegebene vorhandene Markus-Bilder integriert; keine Bilder neu generiert oder inhaltlich verändert.
+- Horizontaler 3D-Teller/Carousel: vorn groß, scharf und hell; seitlich perspektivisch kleiner; hinten dunkler und unschärfer.
+- Bedienung per Pfeiltasten im UI, Klick auf Bild und Ziehen/Swipe.
+- Startposition: freigestelltes Ganzkörpermotiv vorne.
+- Bestehende Musik-, Projekte-, Archiv-, Über-mich- und Streaming-Inhalte unverändert übernommen.

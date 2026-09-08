@@ -1,0 +1,6 @@
+WORLD SONG FIX 2
+- 10 direkte Suno-Songlinks eingebaut
+- Flaggen deutlich als zentrales visuelles Element hervorgehoben
+- Brasilien statt Portugal für die portugiesische Version
+- Professionellere Karten mit Hover, CTA und einheitlichem Raster
+- Keine neuen Bilder generiert; vorhandene Homepage-Assets unverändert

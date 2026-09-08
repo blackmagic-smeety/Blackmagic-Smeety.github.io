@@ -1,0 +1,11 @@
+BLACKMAGIC SMEETY HOMEPAGE — THE WORLD SONG BUILD 1
+07.09.2026
+
+- Layout Fix 1 unverändert als Basis übernommen.
+- Neuer Navigationspunkt WORLD SONG ergänzt.
+- Neuer Special-Project-Bereich zwischen Musik und Über mich eingefügt.
+- THE WORLD SONG als eigenständiges Projekt hervorgehoben.
+- Claim: 10 Sprachen. Ein Song. Ein Herzschlag.
+- Zehn Sprachversionen als kompakte Projektübersicht integriert.
+- Keine neuen Bilder erzeugt.
+- Responsive Darstellung für Desktop, Tablet und Smartphone ergänzt.

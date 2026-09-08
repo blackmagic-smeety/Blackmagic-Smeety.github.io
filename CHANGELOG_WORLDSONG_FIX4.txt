@@ -1,0 +1,9 @@
+WORLD SONG FIX 4
+- Flaggen-Großkarten entfernt
+- Cover-first Galerie mit 10 Sprachkarten
+- Gesamtcover prominent im Projekteinstieg
+- Kleine lokale Länderflaggen nur noch als Badge
+- Alle direkten Suno-Songlinks integriert
+- Karten deutlich kompakter für Desktop-Browser
+- Originalcover im Projektordner assets/worldsong gesichert
+Hinweis: Für HEARTBEAT/Englisch lag in den bereitgestellten Dateien kein eindeutig englisch beschriftetes Einzelcover vor. Deshalb wird dort vorläufig das offizielle World-Song-Gesamtcover verwendet.

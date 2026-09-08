@@ -1,0 +1,11 @@
+Blackmagic Smeety – Projekte Layout 1 + rechtliche Navigation
+08.09.2026
+
+- Hauptregister WORLD SONG in PROJEKTE umbenannt.
+- THE WORLD SONG ist jetzt ein Projekt innerhalb der Projekte-Übersicht.
+- Projekt-Detailansicht mit Zurück-Navigation innerhalb des PROJEKTE-Registers.
+- Bestehende 10 Suno-Direktlinks und Cover-Galerie übernommen.
+- Rechtliche Navigation unten rechts ergänzt: Impressum, Datenschutz, Externe Links.
+- Kontakt-E-Mail blackmagic.smeety@gmail.com eingetragen.
+- Rechtstexte bewusst als Arbeitsfassung gekennzeichnet; Name und ladungsfähige Anschrift müssen vor Veröffentlichung ergänzt werden.
+- Bestehende HOME-, MUSIK-, ARCHIV-, ÜBER-MICH- und STREAMING-Bereiche beibehalten.
