@@ -1,0 +1,18 @@
+BLACKMAGIC SMEETY – ARCHIV FIX 1 + LEGAL UPDATE 1
+
+ARCHIV
+- deutlich kompakter
+- vorhandene Cover/Assets wieder sichtbar
+- Datum, Titel, Kurzgeschichte und Player in einer kompakten Zeile
+- Album-/Song-Buttons im Blackmagic-Smeety-Design
+- Desktop und Mobile angepasst
+- keine neuen Bilder erzeugt
+
+LEGAL
+- Impressum mit bestätigten Angaben von Markus Smeets aktualisiert
+- Datenschutz um GitHub Pages, GoatCounter, YouTube-Embeds,
+  externe Links und E-Mail-Gästebuch ergänzt
+- Stand September 2026
+
+WICHTIG:
+Die Google-Verifizierungsdatei google9ee62da2c471c239.html beim Upload nicht löschen.

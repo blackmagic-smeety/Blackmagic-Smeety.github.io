@@ -16,8 +16,31 @@ document.querySelectorAll('.project-back').forEach(b=>b.addEventListener('click'
 const legalModal=document.getElementById('legal-modal');
 const legalContent=document.getElementById('legal-content');
 const legalTexts={
-  impressum:`<p class="eyebrow">RECHTLICHES</p><h2 id="legal-title">Impressum</h2><p class="legal-note">Vor der öffentlichen Veröffentlichung bitte noch Namen und ladungsfähige Anschrift ergänzen und den finalen Text prüfen.</p><h3>Kontakt</h3><p>E-Mail: <a href="mailto:blackmagic.smeety@gmail.com">blackmagic.smeety@gmail.com</a></p><h3>Verantwortlich für die Inhalte</h3><p>Blackmagic Smeety<br><em>Name und ladungsfähige Anschrift werden vor Veröffentlichung ergänzt.</em></p>`,
-  datenschutz:`<p class="eyebrow">RECHTLICHES</p><h2 id="legal-title">Datenschutz</h2><p class="legal-note">Arbeitsfassung – vor dem öffentlichen Start anhand der tatsächlich eingesetzten Dienste final prüfen.</p><p>Diese Website dient der Präsentation von Musik, Projekten und Informationen zu Blackmagic Smeety. Auf der Hauptseite werden derzeit keine eigenen Analyse- oder Trackingdienste eingesetzt.</p><h3>Hosting</h3><p>Für die geplante Veröffentlichung über GitHub Pages können beim Aufruf technisch notwendige Verbindungsdaten durch den Hostinganbieter verarbeitet werden.</p><h3>Externe Plattformen</h3><p>Links führen unter anderem zu Suno, Spotify, Amazon Music und YouTube. Beim Öffnen dieser Dienste gelten deren eigene Datenschutzbestimmungen. Eingebettete Inhalte, etwa ein YouTube-Player auf einzelnen Songseiten, können bereits beim Laden eine Verbindung zum jeweiligen Anbieter herstellen.</p><h3>Kontakt per E-Mail</h3><p>Wenn du uns per E-Mail kontaktierst, werden die übermittelten Angaben ausschließlich zur Bearbeitung der Anfrage verwendet.</p>`,
+  impressum:`<p class="eyebrow">RECHTLICHES</p><h2 id="legal-title">Impressum</h2>
+<h3>Angaben gemäß § 5 DDG</h3>
+<p><strong>Markus Smeets</strong><br>Am Mühlenturm 15<br>47608 Geldern<br>Deutschland</p>
+<h3>Kontakt</h3>
+<p>E-Mail: <a href="mailto:blackmagic.smeety@gmail.com">blackmagic.smeety@gmail.com</a></p>
+<h3>Blackmagic Smeety</h3>
+<p>„Blackmagic Smeety“ ist der Künstler- und Projektname von Markus Smeets.</p>`,
+  datenschutz:`<p class="eyebrow">RECHTLICHES</p><h2 id="legal-title">Datenschutz</h2>
+<h3>1. Verantwortlicher</h3>
+<p>Markus Smeets<br>Am Mühlenturm 15<br>47608 Geldern<br>Deutschland<br>E-Mail: <a href="mailto:blackmagic.smeety@gmail.com">blackmagic.smeety@gmail.com</a></p>
+<h3>2. Hosting über GitHub Pages</h3>
+<p>Diese Website wird über GitHub Pages bereitgestellt. Beim Aufruf der Website können technisch erforderliche Verbindungs- und Serverdaten durch GitHub verarbeitet werden.</p>
+<h3>3. Besucherstatistik mit GoatCounter</h3>
+<p>Für eine datensparsame Reichweitenmessung wird GoatCounter eingesetzt. Dabei können zusammengefasste Angaben zu Seitenaufrufen, Browser, Betriebssystem, ungefährem Land, Referrer und Bildschirmgröße verarbeitet werden. GoatCounter setzt nach eigener Anbieterangabe keine Cookies oder dauerhaften Tracking-IDs zur Besucheridentifikation ein.</p>
+<h3>4. YouTube-Player</h3>
+<p>Musik wird erst nach einer bewussten Aktion im eingebetteten YouTube-Player geladen. Dafür wird youtube-nocookie.com verwendet. Beim Start des Players wird eine Verbindung zu Google/YouTube hergestellt; dabei können Daten an den Anbieter übermittelt werden.</p>
+<h3>5. Coverbilder im Archiv</h3>
+<p>Einige offizielle Release-Cover im Archiv werden derzeit von einem Amazon-Music-Bildserver geladen. Beim Öffnen des Archivs kann dadurch eine Verbindung zu Amazon hergestellt und die IP-Adresse technisch übermittelt werden.</p>
+<h3>6. Externe Links</h3>
+<p>Die Website enthält Links zu Musik- und Social-Media-Plattformen, unter anderem YouTube, Spotify, Amazon Music, Apple Music, Deezer, Facebook, Instagram, TikTok und Suno. Diese Dienste werden über normale Links erst beim Anklicken aufgerufen.</p>
+<h3>7. Kontakt per E-Mail / Gästebuch</h3>
+<p>Das Gästebuch öffnet eine vorbereitete E-Mail. Wenn du Kontakt aufnimmst, werden die von dir übermittelten Angaben zur Bearbeitung deiner Nachricht verarbeitet.</p>
+<h3>8. Deine Rechte</h3>
+<p>Im Rahmen der gesetzlichen Voraussetzungen bestehen insbesondere Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch sowie ein Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde.</p>
+<p class="legal-status">Stand: September 2026</p>`,
   links:`<p class="eyebrow">RECHTLICHES</p><h2 id="legal-title">Hinweis zu externen Links</h2><p>Diese Website enthält Verknüpfungen zu externen Websites und Plattformen Dritter. Auf deren aktuelle oder zukünftige Inhalte und Gestaltung hat Blackmagic Smeety keinen unmittelbaren Einfluss.</p><p>Externe Links werden bei ihrer Aufnahme nach bestem Wissen geprüft. Sollten rechtswidrige oder problematische Inhalte bekannt werden, wird der betreffende Link nach Prüfung entfernt.</p><p>Für Inhalte externer Anbieter ist grundsätzlich der jeweilige Betreiber verantwortlich. Dieser Hinweis stellt keinen pauschalen Haftungsausschluss dar, sondern beschreibt die Abgrenzung zu fremden Inhalten.</p>`
 };
 document.querySelectorAll('[data-legal]').forEach(b=>b.addEventListener('click',()=>{legalContent.innerHTML=legalTexts[b.dataset.legal]||'';legalModal.classList.add('open');legalModal.setAttribute('aria-hidden','false');}));
