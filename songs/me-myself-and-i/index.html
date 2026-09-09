@@ -13,6 +13,9 @@
   <link rel="canonical" href="https://blackmagic-smeety.github.io/songs/me-myself-and-i/" />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="theme-color" content="#09111f" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../../assets/favicon-192.png" />
+  <link rel="apple-touch-icon" href="../../assets/favicon-192.png" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -56,24 +59,13 @@
         </dl>
 
         <div class="streaming">
+          <button class="stream-btn primary song-listen-now" type="button" data-player-open>▶ SONG ANHÖREN</button>
           <a class="stream-btn" target="_blank" rel="noopener" href="https://open.spotify.com/intl-de/album/7711y23IhNJv8K0sTAkp6c?si=FKIlHd75R6urMaQN_qzbPg">Spotify</a>
           <a class="stream-btn" target="_blank" rel="noopener" href="https://music.amazon.com/tracks/B0H7PBKK97?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_xUdBNZi0CmyInE5cjftIyBLic">Amazon Music</a>
           <a class="stream-btn" target="_blank" rel="noopener" href="https://music.apple.com/at/album/me-myself-and-i-single/6787665294">Apple Music</a>
           <a class="stream-btn" target="_blank" rel="noopener" href="https://link.deezer.com/s/34kGF6eB15l2uyqYcLz85">Deezer</a>
           <a class="stream-btn primary" target="_blank" rel="noopener" href="https://youtu.be/W2MTTcLjcsE?si=SbxIl7MxB6lVbOx8">YouTube</a>
         </div>
-      </div>
-    </section>
-
-    <section id="listen" class="content-section section-shell listen-section">
-      <div class="listen-copy">
-        <div class="section-kicker">DIREKT ANHÖREN · TESTPLAYER</div>
-        <h2>Me, Myself and I</h2>
-        <p>Starte den offiziellen YouTube-Art-Track direkt hier auf der Blackmagic-Smeety-Homepage. Du bleibst dabei auf dieser Seite.</p>
-        <div class="listen-note">▶ Wiedergabe über YouTube · keine MP3-Datei auf der Homepage</div>
-      </div>
-      <div class="audio-video-frame">
-        <iframe src="https://www.youtube-nocookie.com/embed/Bv2s04umF_k?rel=0" title="Me, Myself and I – offizieller YouTube Art Track" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </div>
     </section>
 
@@ -142,6 +134,15 @@
     </section>
   </main>
 
+
+  <div class="song-player-modal" id="song-player-modal" aria-hidden="true">
+    <div class="song-player-backdrop" data-player-close></div>
+    <section class="song-player-dialog" role="dialog" aria-modal="true" aria-labelledby="song-player-title">
+      <button class="song-player-close" type="button" data-player-close aria-label="Player schließen">×</button>
+      <div class="song-player-info"><img src="assets/me-myself-and-i-cover.png" alt="Me, Myself and I Cover"><div><span>BLACKMAGIC SMEETY · SOUL ROCK</span><h2 id="song-player-title">Me, Myself and I</h2><p>Direkt anhören · Wiedergabe über YouTube</p></div></div>
+      <div class="song-player-frame"><iframe id="song-player-frame" data-src="https://www.youtube-nocookie.com/embed/Bv2s04umF_k?rel=0&amp;autoplay=1" title="Me, Myself and I – offizieller YouTube Art Track" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+    </section>
+  </div>
   <footer>
     <div class="footer-brand">BLACKMAGIC <strong>SMEETY</strong></div>
     <p>Songwriter mit Herz &amp; Beat</p>

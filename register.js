@@ -104,3 +104,16 @@ const initial=location.hash.slice(1);if(tabs.some(t=>t.dataset.panel===initial))
     window.location.href=`mailto:blackmagic.smeety@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 })();
+
+
+// PLAYER TEST 2 — Overlay statt Scrollen
+(()=>{
+  const modal=document.getElementById('song-player-modal');
+  const frame=document.getElementById('song-player-frame');
+  if(!modal||!frame)return;
+  const open=()=>{if(!frame.src)frame.src=frame.dataset.src;modal.classList.add('is-open');modal.setAttribute('aria-hidden','false');document.body.classList.add('player-open');};
+  const close=()=>{modal.classList.remove('is-open');modal.setAttribute('aria-hidden','true');document.body.classList.remove('player-open');frame.src='';};
+  document.querySelectorAll('[data-player-open]').forEach(btn=>btn.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open();}));
+  document.querySelectorAll('[data-player-close]').forEach(el=>el.addEventListener('click',close));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('is-open'))close();});
+})();

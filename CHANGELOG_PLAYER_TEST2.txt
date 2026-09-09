@@ -1,0 +1,14 @@
+BLACKMAGIC SMEETY HOMEPAGE — PLAYER TEST 2
+
+Basis: PLAYER TEST 1 / MOBILE FIX 2 / SEO BUILD 1
+
+Freigegebene Änderungen:
+1. Me, Myself and I: direkter Button „▶ SONG ANHÖREN“ in der MUSIK-Übersicht.
+2. Player öffnet als Overlay über der aktuellen Seite — kein Scrollen und kein Seitenwechsel nötig.
+3. „SONG ÖFFNEN“ wurde bei Song-Aktionen in „SONG DETAILS“ geändert.
+4. Auf der eigenständigen Me, Myself and I-Seite liegt „▶ SONG ANHÖREN“ direkt oben bei den Streaming-Buttons; der alte, weit unten liegende Testplayer wurde entfernt.
+5. Blackmagic-Smeety-Favicon aus dem freigegebenen Hut-/Blaue-Brille-Sticker ergänzt (32px/192px/512px + ICO).
+
+Unverändert: Desktop-Grundlayout, Mobile Fix 2, Social Links, Gästebuch, GoatCounter, robots.txt, sitemap.xml, SEO-Metadaten und vorhandene Inhalte/Bilder.
+
+WICHTIG beim GitHub-Upload: google9ee62da2c471c239.html auf GitHub NICHT löschen.

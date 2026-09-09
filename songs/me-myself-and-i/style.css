@@ -70,11 +70,18 @@ h1 span{display:block;white-space:nowrap}
 .brand-logo{width:52px;height:52px;object-fit:contain;border-radius:50%;filter:drop-shadow(0 0 12px rgba(28,164,255,.28))}
 @media(max-width:700px){.brand-logo{width:42px;height:42px}}
 
-/* PLAYER TEST 1: offizieller YouTube Art Track */
-.listen-section{display:grid;grid-template-columns:minmax(0,.82fr) minmax(320px,1.18fr);gap:38px;align-items:center;padding-top:36px;padding-bottom:58px}
-.listen-copy p{max-width:620px;color:var(--muted);line-height:1.7;margin:0 0 16px}
-.listen-note{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:rgba(8,18,35,.72);font-size:.82rem;font-weight:700;letter-spacing:.03em;color:#dce9ff}
-.audio-video-frame{position:relative;padding-top:56.25%;border-radius:22px;overflow:hidden;border:1px solid rgba(102,216,255,.28);box-shadow:0 20px 56px rgba(0,0,0,.38);background:#000}
-.audio-video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-@media(max-width:900px){.listen-section{grid-template-columns:1fr;gap:24px;text-align:center}.listen-copy p{margin-left:auto;margin-right:auto}.listen-note{justify-content:center}}
-@media(max-width:560px){.listen-section{padding-top:26px;padding-bottom:44px}.listen-note{display:flex;border-radius:16px;line-height:1.35}.audio-video-frame{border-radius:16px}}
+
+
+/* PLAYER TEST 2 — Player direkt oben, als Overlay ohne Scrollen */
+.song-listen-now{font:inherit;cursor:pointer}
+.song-player-modal{position:fixed;inset:0;z-index:3000;display:grid;place-items:center;padding:20px;visibility:hidden;opacity:0;pointer-events:none;transition:opacity .18s ease,visibility .18s ease}
+.song-player-modal.is-open{visibility:visible;opacity:1;pointer-events:auto}
+.song-player-backdrop{position:absolute;inset:0;background:rgba(0,5,12,.86);backdrop-filter:blur(9px)}
+.song-player-dialog{position:relative;z-index:1;width:min(760px,94vw);max-height:92vh;overflow:hidden;border:1px solid rgba(105,216,255,.42);border-radius:22px;background:linear-gradient(145deg,#071525,#030b14);box-shadow:0 28px 90px #000d;padding:20px}
+.song-player-close{position:absolute;right:12px;top:10px;width:38px;height:38px;border-radius:50%;border:1px solid rgba(105,216,255,.32);background:#06111f;color:#fff;font-size:25px;line-height:1;cursor:pointer;z-index:2}
+.song-player-info{display:grid;grid-template-columns:82px minmax(0,1fr);gap:15px;align-items:center;padding:2px 46px 16px 2px}
+.song-player-info img{width:82px;height:82px;object-fit:contain;border-radius:12px;background:#020913;border:1px solid var(--line)}
+.song-player-info span{font-size:9px;color:var(--cyan);font-weight:900;letter-spacing:1px}.song-player-info h2{font-size:clamp(24px,4vw,36px);line-height:1;margin:5px 0;color:#f5fbff}.song-player-info p{margin:0;color:var(--muted);font-size:12px}
+.song-player-frame{position:relative;width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#000;border:1px solid var(--line)}.song-player-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+body.player-open{overflow:hidden!important}
+@media(max-width:560px){.song-player-modal{padding:10px}.song-player-dialog{width:96vw;border-radius:17px;padding:13px}.song-player-info{grid-template-columns:54px minmax(0,1fr);gap:10px;padding:0 34px 11px 0}.song-player-info img{width:54px;height:54px}.song-player-info span{font-size:7px}.song-player-info h2{font-size:20px;margin:3px 0}.song-player-info p{font-size:10px}.song-player-frame{border-radius:12px}}
