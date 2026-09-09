@@ -51,7 +51,8 @@ const initial=location.hash.slice(1);if(tabs.some(t=>t.dataset.panel===initial))
     }
   }
   search?.addEventListener('input',e=>{query=e.target.value;page=1;render();});
-  document.querySelectorAll('[data-music-project]').forEach(card=>card.addEventListener('click',()=>{
+  document.querySelectorAll('[data-music-project]').forEach(card=>card.addEventListener('click',e=>{
+    e.preventDefault();e.stopPropagation();
     openPanel('projects');
     showProjectsHome();projectsHome.classList.remove('active');
     const d=document.getElementById(`project-${card.dataset.musicProject}`);if(d)d.classList.add('active');
@@ -106,14 +107,26 @@ const initial=location.hash.slice(1);if(tabs.some(t=>t.dataset.panel===initial))
 })();
 
 
-// PLAYER TEST 2 — Overlay statt Scrollen
+// MUSIC PLAYER — Songs und YouTube-Album-Playlists im Overlay
 (()=>{
   const modal=document.getElementById('song-player-modal');
   const frame=document.getElementById('song-player-frame');
+  const title=document.getElementById('song-player-title');
+  const cover=document.getElementById('song-player-cover');
   if(!modal||!frame)return;
-  const open=()=>{if(!frame.src)frame.src=frame.dataset.src;modal.classList.add('is-open');modal.setAttribute('aria-hidden','false');document.body.classList.add('player-open');};
+  const open=(btn)=>{
+    const video=btn.dataset.videoId||'';
+    const playlist=btn.dataset.playlistId||'';
+    const src=video
+      ? `https://www.youtube-nocookie.com/embed/${encodeURIComponent(video)}?rel=0&autoplay=1`
+      : `https://www.youtube-nocookie.com/embed/videoseries?list=${encodeURIComponent(playlist)}&rel=0&autoplay=1`;
+    frame.src=src;
+    if(title)title.textContent=btn.dataset.playerTitle||'Blackmagic Smeety';
+    if(cover&&btn.dataset.playerCover)cover.src=btn.dataset.playerCover;
+    modal.classList.add('is-open');modal.setAttribute('aria-hidden','false');document.body.classList.add('player-open');
+  };
   const close=()=>{modal.classList.remove('is-open');modal.setAttribute('aria-hidden','true');document.body.classList.remove('player-open');frame.src='';};
-  document.querySelectorAll('[data-player-open]').forEach(btn=>btn.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open();}));
+  document.querySelectorAll('[data-player-open]').forEach(btn=>btn.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(btn);}));
   document.querySelectorAll('[data-player-close]').forEach(el=>el.addEventListener('click',close));
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('is-open'))close();});
 })();

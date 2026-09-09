@@ -315,3 +315,18 @@
 body.player-open{overflow:hidden!important}
 @media(max-width:950px){.music-card-actions{gap:6px}.music-play-btn,.music-details-link{font-size:8px;min-height:31px}.song-player-dialog{width:min(680px,94vw);padding:16px}.song-player-info{grid-template-columns:66px minmax(0,1fr);padding-right:38px}.song-player-info img{width:66px;height:66px}.song-player-info h2{font-size:24px}}
 @media(max-width:430px){.music-card-actions{display:grid;grid-template-columns:1fr;gap:5px}.music-play-btn,.music-details-link{width:100%;font-size:7.5px;padding:6px}.song-player-modal{padding:10px}.song-player-dialog{width:96vw;border-radius:17px;padding:13px}.song-player-info{grid-template-columns:54px minmax(0,1fr);gap:10px;padding:0 34px 11px 0}.song-player-info img{width:54px;height:54px}.song-player-info span{font-size:7px}.song-player-info h2{font-size:20px;margin:3px 0}.song-player-info p{font-size:10px}.song-player-frame{border-radius:12px}}
+
+/* === MUSIC + ARCHIVE BUILD 1 === */
+.music-detail-project{appearance:none;background:transparent;border:0;padding:0;cursor:pointer;font:inherit}
+.archive-timeline{overflow:auto;max-height:calc(100vh - 230px);padding-right:6px}
+.archive-story{align-items:center;gap:18px}
+.archive-story>div{min-width:0}
+.archive-story p{margin:5px 0 0;color:#8fa5b7;font-size:11px;line-height:1.35}
+.archive-play{appearance:none;border:1px solid #1c78a8;border-radius:999px;background:#071b2d;color:#7de2ff;padding:9px 12px;font-size:9px;font-weight:900;letter-spacing:.5px;cursor:pointer;white-space:nowrap}
+.archive-play:hover{border-color:#53d7ff;background:#0a2941}
+@media(max-width:700px){
+  .archive-timeline{max-height:none;overflow:visible}
+  .archive-story{grid-template-columns:82px minmax(0,1fr);align-items:start}
+  .archive-story .archive-play{grid-column:2;width:max-content;max-width:100%;margin-top:2px}
+  .archive-story p{font-size:10px}
+}
