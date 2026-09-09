@@ -1,0 +1,13 @@
+BLACKMAGIC SMEETY HOMEPAGE – PLAYER TEST 1
+
+Basis: MOBILE FIX 2
+
+Änderung:
+- Auf der Detailseite „Me, Myself and I“ wurde ein Testbereich „DIREKT ANHÖREN“ ergänzt.
+- Eingebettet ist der offizielle YouTube-Art-Track mit der Video-ID Bv2s04umF_k.
+- Wiedergabe erfolgt über youtube-nocookie.com; keine MP3 wird auf GitHub gespeichert.
+- Der bestehende Musikvideo-Bereich bleibt unverändert.
+- Desktop-, Mobile-, Social-, Gästebuch-, SEO-, Sitemap-, robots.txt- und GoatCounter-Strukturen bleiben unverändert.
+
+Hinweis:
+Die Google-Verifizierungsdatei google9ee62da2c471c239.html liegt weiterhin separat im GitHub-Repository und darf nicht gelöscht werden.
