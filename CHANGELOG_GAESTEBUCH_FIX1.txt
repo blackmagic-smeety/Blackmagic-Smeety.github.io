@@ -1,0 +1,17 @@
+BLACKMAGIC SMEETY – GÄSTEBUCH FIX 1
+
+- mailto-Lösung vollständig entfernt
+- echtes Formular über Formspark integriert
+- Formspark-Endpoint: https://submit-form.com/6JopcsU2W
+- Name
+- E-Mail-Adresse optional
+- Nachricht erforderlich
+- Besucher bleibt beim Senden auf der Homepage
+- Lade-, Erfolgs- und Fehlermeldung direkt im Formular
+- kein Outlook / kein lokales Mailprogramm / kein Login erforderlich
+- Datenschutzerklärung um Formspark ergänzt
+- Desktop und Mobile angepasst
+- JavaScript-Syntax geprüft
+
+WICHTIG BEIM GITHUB-UPLOAD:
+google9ee62da2c471c239.html NICHT löschen.

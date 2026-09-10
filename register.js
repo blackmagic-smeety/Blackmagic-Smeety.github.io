@@ -34,11 +34,13 @@ const legalTexts={
 <p>Musik wird erst nach einer bewussten Aktion im eingebetteten YouTube-Player geladen. Dafür wird youtube-nocookie.com verwendet. Beim Start des Players wird eine Verbindung zu Google/YouTube hergestellt; dabei können Daten an den Anbieter übermittelt werden.</p>
 <h3>5. Coverbilder im Archiv</h3>
 <p>Einige offizielle Release-Cover im Archiv werden derzeit von einem Amazon-Music-Bildserver geladen. Beim Öffnen des Archivs kann dadurch eine Verbindung zu Amazon hergestellt und die IP-Adresse technisch übermittelt werden.</p>
-<h3>6. Externe Links</h3>
+<h3>6. Kontaktformular über Formspark</h3>
+<p>Für das Gästebuch/Kontaktformular wird Formspark eingesetzt. Wenn du das Formular absendest, werden die von dir eingegebenen Angaben – insbesondere Name, freiwillige E-Mail-Adresse und Nachricht – an Formspark zur technischen Übermittlung und Verarbeitung der Nachricht übertragen. Die Nutzung des Formulars ist freiwillig.</p>
+<h3>7. Externe Links</h3>
 <p>Die Website enthält Links zu Musik- und Social-Media-Plattformen, unter anderem YouTube, Spotify, Amazon Music, Apple Music, Deezer, Facebook, Instagram, TikTok und Suno. Diese Dienste werden über normale Links erst beim Anklicken aufgerufen.</p>
-<h3>7. Kontakt per E-Mail / Gästebuch</h3>
-<p>Das Gästebuch öffnet eine vorbereitete E-Mail. Wenn du Kontakt aufnimmst, werden die von dir übermittelten Angaben zur Bearbeitung deiner Nachricht verarbeitet.</p>
-<h3>8. Deine Rechte</h3>
+<h3>8. Kontakt / Gästebuch</h3>
+<p>Wenn du über das Gästebuch Kontakt aufnimmst, werden die von dir freiwillig übermittelten Angaben zur Bearbeitung deiner Nachricht verarbeitet. Eine E-Mail-Adresse ist im Formular nicht erforderlich.</p>
+<h3>9. Deine Rechte</h3>
 <p>Im Rahmen der gesetzlichen Voraussetzungen bestehen insbesondere Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch sowie ein Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde.</p>
 <p class="legal-status">Stand: September 2026</p>`,
   links:`<p class="eyebrow">RECHTLICHES</p><h2 id="legal-title">Hinweis zu externen Links</h2><p>Diese Website enthält Verknüpfungen zu externen Websites und Plattformen Dritter. Auf deren aktuelle oder zukünftige Inhalte und Gestaltung hat Blackmagic Smeety keinen unmittelbaren Einfluss.</p><p>Externe Links werden bei ihrer Aufnahme nach bestem Wissen geprüft. Sollten rechtswidrige oder problematische Inhalte bekannt werden, wird der betreffende Link nach Prüfung entfernt.</p><p>Für Inhalte externer Anbieter ist grundsätzlich der jeweilige Betreiber verantwortlich. Dieser Hinweis stellt keinen pauschalen Haftungsausschluss dar, sondern beschreibt die Abgrenzung zu fremden Inhalten.</p>`
@@ -114,21 +116,66 @@ const initial=location.hash.slice(1);if(tabs.some(t=>t.dataset.panel===initial))
   render();
 })();
 
-// Gästebuch: bereitet eine E-Mail vor, ohne Daten auf der Website zu speichern.
+// Gästebuch: echte Formularübermittlung über Formspark – kein lokales E-Mail-Programm.
 (() => {
   const form=document.getElementById('guestbook-form');
+  const status=document.getElementById('guestbook-status');
+  const submit=document.getElementById('guestbook-submit');
   if(!form)return;
-  form.addEventListener('submit',e=>{
+
+  const setStatus=(type,text)=>{
+    if(!status)return;
+    status.className=`guestbook-status ${type ? `is-${type}` : ''}`;
+    status.textContent=text||'';
+  };
+
+  form.addEventListener('submit',async e=>{
     e.preventDefault();
-    const name=(document.getElementById('guest-name')?.value||'').trim();
-    const subject=(document.getElementById('guest-subject')?.value||'').trim()||'Gästebuch – Nachricht von der Blackmagic Smeety Homepage';
+
     const message=(document.getElementById('guest-message')?.value||'').trim();
-    if(!message)return;
-    const body=`Hallo Blackmagic Smeety,\n\n${message}\n\n${name?`Viele Grüße\n${name}`:'Viele Grüße'}`;
-    window.location.href=`mailto:blackmagic.smeety@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const email=(document.getElementById('guest-email')?.value||'').trim();
+
+    if(!message){
+      setStatus('error','Bitte schreib zuerst eine Nachricht.');
+      document.getElementById('guest-message')?.focus();
+      return;
+    }
+
+    if(email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+      setStatus('error','Bitte prüfe die eingegebene E-Mail-Adresse.');
+      document.getElementById('guest-email')?.focus();
+      return;
+    }
+
+    const originalText=submit?.textContent||'NACHRICHT SENDEN →';
+    if(submit){
+      submit.disabled=true;
+      submit.textContent='WIRD GESENDET …';
+    }
+    setStatus('sending','Deine Nachricht wird gesendet …');
+
+    try{
+      const response=await fetch(form.action,{
+        method:'POST',
+        body:new FormData(form),
+        headers:{'Accept':'application/json'}
+      });
+
+      if(!response.ok) throw new Error(`HTTP ${response.status}`);
+
+      form.reset();
+      setStatus('success','Danke für deine Nachricht! 🎩 Deine Nachricht wurde erfolgreich an Blackmagic Smeety gesendet.');
+    }catch(error){
+      console.error('Formspark submission failed:',error);
+      setStatus('error','Das Senden hat gerade nicht funktioniert. Bitte versuche es gleich noch einmal.');
+    }finally{
+      if(submit){
+        submit.disabled=false;
+        submit.textContent=originalText;
+      }
+    }
   });
 })();
-
 
 // MUSIC PLAYER — Songs und YouTube-Album-Playlists im Overlay
 (()=>{
