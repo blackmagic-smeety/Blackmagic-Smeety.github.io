@@ -1,0 +1,21 @@
+BLACKMAGIC SMEETY – FLAG FIX 2
+
+Basis: Blackmagic_Smeety_HOMEPAGE_DE_EN_BUILD1
+
+Geändert:
+- nur die sichtbaren DE/GB-Emoji-Flaggen im Header durch lokale SVG-Flaggen ersetzt
+- minimale Größenregeln für die neuen Flaggenbilder ergänzt
+
+Unverändert:
+- register.js komplett
+- DE/EN-Übersetzungslogik
+- alle Texte
+- Navigation
+- Layout
+- Gästebuch / Formspark
+- Archiv
+- Player
+- rechtliche Inhalte
+
+WICHTIG:
+google9ee62da2c471c239.html auf GitHub NICHT löschen.

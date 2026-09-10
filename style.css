@@ -620,3 +620,54 @@ body.player-open{overflow:hidden!important}
   #panel-guestbook .guestbook-form textarea{padding:9px 10px!important}
   #panel-guestbook .guestbook-form textarea{min-height:105px!important}
 }
+
+/* ==========================================================
+   DE / EN LANGUAGE SWITCHER
+   ========================================================== */
+.reg-header-tools{display:flex;align-items:center;gap:18px;margin-left:auto}
+.language-switcher{display:flex;align-items:center;gap:7px}
+.language-flag{
+  position:relative;display:grid;place-items:center;width:39px;height:31px;padding:0;
+  border:1px solid rgba(105,202,240,.22);border-radius:7px;
+  background:rgba(4,18,30,.58);cursor:pointer;overflow:visible;
+  transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease,background .18s ease
+}
+.language-flag span{
+  display:block;font-size:24px;line-height:1;filter:saturate(1.05);
+  transform:perspective(55px) rotateY(-8deg) skewY(-2deg);
+  transform-origin:left center
+}
+.language-flag:nth-child(2) span{transform:perspective(55px) rotateY(8deg) skewY(2deg);transform-origin:right center}
+.language-flag:hover{transform:translateY(-2px);border-color:#65dcff;box-shadow:0 0 15px rgba(55,204,255,.22)}
+.language-flag.active{border-color:#58d8ff;background:rgba(7,44,65,.82);box-shadow:0 0 12px rgba(50,202,255,.22)}
+.language-flag.active::after{
+  content:"";position:absolute;left:8px;right:8px;bottom:-5px;height:2px;border-radius:2px;
+  background:#59dfff;box-shadow:0 0 7px #59dfff
+}
+@media(max-width:760px){
+  .reg-header-tools{gap:8px}
+  .language-switcher{gap:4px}
+  .language-flag{width:33px;height:27px;border-radius:6px}
+  .language-flag span{font-size:20px}
+}
+@media(max-width:520px){
+  .reg-header-tools{gap:5px}
+  .language-flag{width:31px;height:25px}
+  .language-flag span{font-size:19px}
+  .reg-header-tools .reg-hint{display:none}
+}
+
+/* FLAG FIX 2 — only local flag images */
+.language-flag-img{
+  display:block;
+  width:30px;
+  height:20px;
+  object-fit:contain;
+  pointer-events:none;
+}
+@media(max-width:760px){
+  .language-flag-img{width:27px;height:18px}
+}
+@media(max-width:520px){
+  .language-flag-img{width:25px;height:17px}
+}

@@ -1,3 +1,157 @@
+
+// ==========================================================
+// DE / EN LANGUAGE SWITCHER
+// Complete interface translation; published song titles and lyrics stay original.
+// ==========================================================
+const BMS_TRANSLATIONS = {
+  "KLICK AUF EIN REGISTER": "CLICK A TAB",
+  "MUSIK": "MUSIC",
+  "PROJEKTE": "PROJECTS",
+  "ARCHIV": "ARCHIVE",
+  "ÜBER MICH": "ABOUT ME",
+  "GÄSTEBUCH": "GUESTBOOK",
+  "OFFIZIELLE HOMEPAGE": "OFFICIAL WEBSITE",
+  "Songwriter mit Herz & Beat": "Songwriter with Heart & Beat",
+  "Songs mit Geschichte. Persönlich geschrieben.": "Songs with a story. Personally written.",
+  "Digital zum Leben erweckt.": "Digitally brought to life.",
+  "MEINE MUSIK →": "MY MUSIC →",
+  "ZIEHEN · KLICKEN · DREHEN": "DRAG · CLICK · ROTATE",
+  "MEINE MUSIK": "MY MUSIC",
+  "Songs & Geschichten": "Songs & Stories",
+  "Alle Songs von Blackmagic Smeety – übersichtlich gesammelt. Die Bibliothek ist für viele weitere Titel vorbereitet.": "All songs by Blackmagic Smeety – clearly collected in one place. The library is ready for many more releases.",
+  "Selbstreflexion · eigener Weg": "Self-reflection · finding your own way",
+  "▶ SONG ANHÖREN": "▶ LISTEN TO SONG",
+  "Deutsche Fassung": "German version",
+  "Projekte & Specials": "Projects & Specials",
+  "Besondere Ideen bekommen hier ihren eigenen Raum – ohne die Hauptnavigation zu überladen.": "Special ideas get their own space here – without overloading the main navigation.",
+  "10 Sprachen. Ein Song. Ein Herzschlag.": "10 languages. One song. One heartbeat.",
+  "Eine musikalische Reise über Sprachen, Länder und Kulturen hinweg – mit zehn eigenständigen Sprachversionen.": "A musical journey across languages, countries and cultures – with ten individual language versions.",
+  "PROJEKT ÖFFNEN →": "OPEN PROJECT →",
+  "Deutsch + English · Cinematic Pop-Rock": "German + English · Cinematic Pop-Rock",
+  "← ZURÜCK ZU PROJEKTE": "← BACK TO PROJECTS",
+  "Ein gemeinsamer musikalischer Gedanke – erzählt in zehn Sprachen. Klicke auf ein Cover und höre die jeweilige Version direkt bei Suno.": "One shared musical idea – told in ten languages. Click a cover to listen to each version directly on Suno.",
+  "▶ AUF SUNO ANHÖREN ↗": "▶ LISTEN ON SUNO ↗",
+  "Zwei Sprachfassungen eines gemeinsamen Songgedankens über Zeit, Bewusstsein und den Wert des Lebens.": "Two language versions of one shared song idea about time, awareness and the value of life.",
+  "🇩🇪 DEUTSCH": "🇩🇪 GERMAN",
+  "Songtext anzeigen": "Show lyrics",
+  "Summer nights. Attraction. Energy.": "Summer nights. Attraction. Energy.",
+  "▶ VIDEO AUF YOUTUBE ↗": "▶ WATCH VIDEO ON YOUTUBE ↗",
+  "BLACKMAGIC ARCHIV": "BLACKMAGIC ARCHIVE",
+  "Meine musikalische Geschichte": "My musical story",
+  "Veröffentlichungen, Alben und persönliche Stationen – chronologisch und direkt anhörbar.": "Releases, albums and personal milestones – chronological and ready to listen to.",
+  "ALBUM · 10 SONGS": "ALBUM · 10 SONGS",
+  "Der erste große Schritt in der veröffentlichten Albumgeschichte.": "The first major step in my released album story.",
+  "▶ ALBUM ANHÖREN": "▶ LISTEN TO ALBUM",
+  "SINGLE · EINE ECHTE GESCHICHTE": "SINGLE · A TRUE STORY",
+  "Aus Syvarons Weg zu einem neuen Leben voller Vertrauen und Freude entstand dieser persönliche Song.": "This personal song grew from Syvaron's journey toward a new life filled with trust and joy.",
+  "Eine weitere Station in der musikalischen Entwicklung von Blackmagic Smeety.": "Another milestone in the musical journey of Blackmagic Smeety.",
+  "ALBUM · 10 SONGS · 33 MINUTEN": "ALBUM · 10 SONGS · 33 MINUTES",
+  "Die ruhigere Seite von Blackmagic Smeety als zusammenhängende Chill-Session.": "The calmer side of Blackmagic Smeety, brought together as one continuous chill session.",
+  "MINI-ALBUM · 5 SONGS · 15 MINUTEN": "MINI-ALBUM · 5 SONGS · 15 MINUTES",
+  "Fünf Songs als zusammengehöriges Kapitel der Blackmagic-Smeety-Geschichte.": "Five songs forming one connected chapter in the Blackmagic Smeety story.",
+  "DER MENSCH HINTER DEN SONGS": "THE PERSON BEHIND THE SONGS",
+  "Ich schreibe Songs mit Herz, Beat und Ehrlichkeit. Musik für echte Momente.": "I write songs with heart, beat and honesty. Music for real moments.",
+  "Im Mittelpunkt stehen Gedanken, Erinnerungen und Geschichten aus dem Leben. Ich bin Songwriter, nicht Sänger. KI und Suno nutze ich als kreatives Werkzeug, um meine Texte und musikalischen Vorstellungen hörbar zu machen.": "At the heart of my music are thoughts, memories and stories from life. I am a songwriter, not a singer. I use AI and Suno as creative tools to bring my lyrics and musical ideas to life.",
+  "Genregrenzen sind zweitrangig. Entscheidend ist, dass ein Song etwas auslöst und glaubwürdig bleibt.": "Genre boundaries are secondary. What matters is that a song makes you feel something and remains authentic.",
+  "HÖREN & ENTDECKEN": "LISTEN & DISCOVER",
+  "Blackmagic Smeety streamen": "Stream Blackmagic Smeety",
+  "Meine veröffentlichten Songs findest du auf den großen Musikplattformen.": "You can find my released songs on the major music platforms.",
+  "Musik hören": "Listen to music",
+  "Blackmagic Smeety folgen": "Follow Blackmagic Smeety",
+  "Hinterlass mir ein paar Zeilen.": "Leave me a few words.",
+  "Welcher Song hat dich erreicht? Welche Geschichte verbindest du damit? Deine Nachricht wird direkt über das Formular an Blackmagic Smeety gesendet und nicht öffentlich angezeigt.": "Which song reached you? What story do you connect with it? Your message is sent directly to Blackmagic Smeety through this form and will not be displayed publicly.",
+  "Dein Name": "Your name",
+  "Deine E-Mail": "Your email",
+  "(optional)": "(optional)",
+  "Nachricht": "Message",
+  "NACHRICHT SENDEN →": "SEND MESSAGE →",
+  "Kein E-Mail-Programm und kein Login erforderlich. Deine Nachricht wird über Formspark übermittelt.": "No email program or login required. Your message is transmitted via Formspark.",
+  "BLACKMAGIC SMEETY · DIREKT ANHÖREN": "BLACKMAGIC SMEETY · LISTEN NOW",
+  "Wiedergabe über YouTube": "Playback via YouTube",
+  "Impressum": "Legal Notice",
+  "Datenschutz": "Privacy Policy",
+  "Externe Links": "External Links"
+};
+let bmsLanguage = localStorage.getItem('bms-language') === 'en' ? 'en' : 'de';
+const bmsOriginalText = new WeakMap();
+const bmsOriginalAttrs = new WeakMap();
+
+function bmsTranslateInterface(lang){
+  bmsLanguage=lang;
+  document.documentElement.lang=lang;
+  localStorage.setItem('bms-language',lang);
+
+  const skipNode=(node)=>{
+    const el=node.parentElement;
+    return !el || el.closest('script,style,.lyrics,.song-lyrics,[data-no-translate]');
+  };
+
+  const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+  let node;
+  while(node=walker.nextNode()){
+    if(skipNode(node))continue;
+    if(!bmsOriginalText.has(node))bmsOriginalText.set(node,node.nodeValue);
+    const original=bmsOriginalText.get(node);
+    const trimmed=original.trim();
+    if(!trimmed)continue;
+    const translated=BMS_TRANSLATIONS[trimmed];
+    if(translated){
+      const lead=original.match(/^\s*/)?.[0]||'';
+      const trail=original.match(/\s*$/)?.[0]||'';
+      node.nodeValue=lead+(lang==='en'?translated:trimmed)+trail;
+    }
+  }
+
+  document.querySelectorAll('[placeholder],[aria-label],[title]').forEach(el=>{
+    if(!bmsOriginalAttrs.has(el)){
+      bmsOriginalAttrs.set(el,{
+        placeholder:el.getAttribute('placeholder'),
+        aria:el.getAttribute('aria-label'),
+        title:el.getAttribute('title')
+      });
+    }
+    const o=bmsOriginalAttrs.get(el);
+    const attrMap={
+      'Songs durchsuchen …':'Search songs …',
+      'Name':'Name',
+      'E-Mail-Adresse':'Email address',
+      'Schreib mir ein paar Zeilen …':'Write me a few words …',
+      'Player schließen':'Close player',
+      'Vorheriges Bild':'Previous image',
+      'Nächstes Bild':'Next image',
+      'Hauptnavigation':'Main navigation',
+      'Rechtliche Hinweise':'Legal information',
+      'Schließen':'Close'
+    };
+    if(o.placeholder!==null)el.setAttribute('placeholder',lang==='en'?(attrMap[o.placeholder]||o.placeholder):o.placeholder);
+    if(o.aria!==null)el.setAttribute('aria-label',lang==='en'?(attrMap[o.aria]||o.aria):o.aria);
+    if(o.title!==null)el.setAttribute('title',o.title);
+  });
+
+  document.querySelectorAll('.language-flag').forEach(btn=>{
+    btn.classList.toggle('active',btn.dataset.lang===lang);
+    btn.setAttribute('aria-pressed',btn.dataset.lang===lang?'true':'false');
+  });
+
+  const hint=document.querySelector('.reg-hint');
+  if(hint)hint.textContent=lang==='en'?'CLICK A TAB':'KLICK AUF EIN REGISTER';
+
+  document.title=lang==='en'
+    ? 'Blackmagic Smeety – Songwriter | Songs, Projects & Music'
+    : 'Blackmagic Smeety – Songwriter | Songs, Projekte & Musik';
+
+  const desc=document.querySelector('meta[name="description"]');
+  if(desc)desc.setAttribute('content',lang==='en'
+    ? 'Official website of Blackmagic Smeety: personal songs, stories, music projects, videos and streaming links. Songwriter with heart & beat.'
+    : 'Offizielle Homepage von Blackmagic Smeety: persönliche Songs, Geschichten, Musikprojekte, Videos und Streaminglinks. Songwriter mit Herz & Beat.');
+}
+
+document.querySelectorAll('.language-flag').forEach(btn=>{
+  btn.addEventListener('click',()=>bmsTranslateInterface(btn.dataset.lang));
+});
+document.addEventListener('DOMContentLoaded',()=>bmsTranslateInterface(bmsLanguage));
+
+
 const tabs=[...document.querySelectorAll('.reg-tab')];
 const panels=[...document.querySelectorAll('.reg-panel')];
 function openPanel(name){
@@ -15,7 +169,7 @@ document.querySelectorAll('[data-project]').forEach(b=>b.addEventListener('click
 document.querySelectorAll('.project-back').forEach(b=>b.addEventListener('click',showProjectsHome));
 const legalModal=document.getElementById('legal-modal');
 const legalContent=document.getElementById('legal-content');
-const legalTexts={
+const legalTextsDE={
   impressum:`<p class="eyebrow">RECHTLICHES</p><h2 id="legal-title">Impressum</h2>
 <h3>Angaben gemäß § 5 DDG</h3>
 <p><strong>Markus Smeets</strong><br>Am Mühlenturm 15<br>47608 Geldern<br>Deutschland</p>
@@ -45,7 +199,27 @@ const legalTexts={
 <p class="legal-status">Stand: September 2026</p>`,
   links:`<p class="eyebrow">RECHTLICHES</p><h2 id="legal-title">Hinweis zu externen Links</h2><p>Diese Website enthält Verknüpfungen zu externen Websites und Plattformen Dritter. Auf deren aktuelle oder zukünftige Inhalte und Gestaltung hat Blackmagic Smeety keinen unmittelbaren Einfluss.</p><p>Externe Links werden bei ihrer Aufnahme nach bestem Wissen geprüft. Sollten rechtswidrige oder problematische Inhalte bekannt werden, wird der betreffende Link nach Prüfung entfernt.</p><p>Für Inhalte externer Anbieter ist grundsätzlich der jeweilige Betreiber verantwortlich. Dieser Hinweis stellt keinen pauschalen Haftungsausschluss dar, sondern beschreibt die Abgrenzung zu fremden Inhalten.</p>`
 };
-document.querySelectorAll('[data-legal]').forEach(b=>b.addEventListener('click',()=>{legalContent.innerHTML=legalTexts[b.dataset.legal]||'';legalModal.classList.add('open');legalModal.setAttribute('aria-hidden','false');}));
+const legalTextsEN={
+  impressum:`<p class="eyebrow">LEGAL</p><h2 id="legal-title">Legal Notice</h2>
+<h3>Information pursuant to § 5 DDG (German Digital Services Act)</h3>
+<p><strong>Markus Smeets</strong><br>Am Mühlenturm 15<br>47608 Geldern<br>Germany</p>
+<h3>Contact</h3><p>Email: <a href="mailto:blackmagic.smeety@gmail.com">blackmagic.smeety@gmail.com</a></p>
+<h3>Blackmagic Smeety</h3><p>“Blackmagic Smeety” is the artist and project name of Markus Smeets.</p>
+<p class="legal-status">This English version is provided for convenience. The German version is authoritative.</p>`,
+  datenschutz:`<p class="eyebrow">LEGAL</p><h2 id="legal-title">Privacy Policy</h2>
+<h3>1. Controller</h3><p>Markus Smeets<br>Am Mühlenturm 15<br>47608 Geldern<br>Germany<br>Email: <a href="mailto:blackmagic.smeety@gmail.com">blackmagic.smeety@gmail.com</a></p>
+<h3>2. Hosting via GitHub Pages</h3><p>This website is provided through GitHub Pages. When the website is accessed, technically necessary connection and server data may be processed by GitHub.</p>
+<h3>3. Visitor statistics with GoatCounter</h3><p>GoatCounter is used for privacy-friendly audience measurement. Aggregated information such as page views, browser, operating system, approximate country, referrer and screen size may be processed. According to the provider, GoatCounter does not use cookies or persistent tracking IDs to identify visitors.</p>
+<h3>4. YouTube player</h3><p>Music is loaded in the embedded YouTube player only after a deliberate user action. youtube-nocookie.com is used. Starting the player establishes a connection to Google/YouTube and data may be transmitted to the provider.</p>
+<h3>5. Cover images in the archive</h3><p>Some official release covers in the archive are currently loaded from an Amazon Music image server. Opening the archive may therefore establish a connection to Amazon and technically transmit the IP address.</p>
+<h3>6. Contact form via Formspark</h3><p>Formspark is used for the guestbook/contact form. When you submit the form, the information you enter – especially your name, optional email address and message – is transmitted to Formspark for technical delivery and processing of the message. Use of the form is voluntary.</p>
+<h3>7. External links</h3><p>This website contains links to music and social-media platforms including YouTube, Spotify, Amazon Music, Apple Music, Deezer, Facebook, Instagram, TikTok and Suno. These services are accessed only when you click the respective links.</p>
+<h3>8. Contact / Guestbook</h3><p>If you contact me through the guestbook, the information you voluntarily provide is processed to handle your message. An email address is not required.</p>
+<h3>9. Your rights</h3><p>Subject to the applicable legal requirements, you may have rights including access, rectification, erasure, restriction of processing, data portability and objection, as well as the right to lodge a complaint with a data protection supervisory authority.</p>
+<p class="legal-status">Last updated: September 2026 · This English version is provided for convenience. The German version is authoritative.</p>`,
+  links:`<p class="eyebrow">LEGAL</p><h2 id="legal-title">External Links</h2><p>This website contains links to external websites and third-party platforms. Blackmagic Smeety has no direct influence over their current or future content or design.</p><p>External links are checked to the best of our knowledge when they are added. If unlawful or problematic content becomes known, the relevant link will be reviewed and removed where appropriate.</p><p>The respective operator is generally responsible for external content. This notice does not constitute a blanket disclaimer of liability; it describes the distinction between this website and third-party content.</p><p class="legal-status">This English version is provided for convenience. The German version is authoritative.</p>`
+};
+document.querySelectorAll('[data-legal]').forEach(b=>b.addEventListener('click',()=>{legalContent.innerHTML=(bmsLanguage==='en'?legalTextsEN:legalTextsDE)[b.dataset.legal]||'';legalModal.classList.add('open');legalModal.setAttribute('aria-hidden','false');}));
 document.querySelectorAll('[data-legal-close]').forEach(el=>el.addEventListener('click',()=>{legalModal.classList.remove('open');legalModal.setAttribute('aria-hidden','true');}));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&legalModal.classList.contains('open')){legalModal.classList.remove('open');legalModal.setAttribute('aria-hidden','true');}});
 const initial=location.hash.slice(1);if(tabs.some(t=>t.dataset.panel===initial))openPanel(initial);
@@ -136,13 +310,13 @@ const initial=location.hash.slice(1);if(tabs.some(t=>t.dataset.panel===initial))
     const email=(document.getElementById('guest-email')?.value||'').trim();
 
     if(!message){
-      setStatus('error','Bitte schreib zuerst eine Nachricht.');
+      setStatus('error',bmsLanguage==='en'?'Please write a message first.':'Bitte schreib zuerst eine Nachricht.');
       document.getElementById('guest-message')?.focus();
       return;
     }
 
     if(email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
-      setStatus('error','Bitte prüfe die eingegebene E-Mail-Adresse.');
+      setStatus('error',bmsLanguage==='en'?'Please check the email address you entered.':'Bitte prüfe die eingegebene E-Mail-Adresse.');
       document.getElementById('guest-email')?.focus();
       return;
     }
@@ -150,9 +324,9 @@ const initial=location.hash.slice(1);if(tabs.some(t=>t.dataset.panel===initial))
     const originalText=submit?.textContent||'NACHRICHT SENDEN →';
     if(submit){
       submit.disabled=true;
-      submit.textContent='WIRD GESENDET …';
+      submit.textContent=bmsLanguage==='en'?'SENDING …':'WIRD GESENDET …';
     }
-    setStatus('sending','Deine Nachricht wird gesendet …');
+    setStatus('sending',bmsLanguage==='en'?'Your message is being sent …':'Deine Nachricht wird gesendet …');
 
     try{
       const response=await fetch(form.action,{
@@ -164,10 +338,10 @@ const initial=location.hash.slice(1);if(tabs.some(t=>t.dataset.panel===initial))
       if(!response.ok) throw new Error(`HTTP ${response.status}`);
 
       form.reset();
-      setStatus('success','Danke für deine Nachricht! 🎩 Deine Nachricht wurde erfolgreich an Blackmagic Smeety gesendet.');
+      setStatus('success',bmsLanguage==='en'?'Thank you for your message! 🎩 Your message was successfully sent to Blackmagic Smeety.':'Danke für deine Nachricht! 🎩 Deine Nachricht wurde erfolgreich an Blackmagic Smeety gesendet.');
     }catch(error){
       console.error('Formspark submission failed:',error);
-      setStatus('error','Das Senden hat gerade nicht funktioniert. Bitte versuche es gleich noch einmal.');
+      setStatus('error',bmsLanguage==='en'?'Sending did not work just now. Please try again in a moment.':'Das Senden hat gerade nicht funktioniert. Bitte versuche es gleich noch einmal.');
     }finally{
       if(submit){
         submit.disabled=false;
