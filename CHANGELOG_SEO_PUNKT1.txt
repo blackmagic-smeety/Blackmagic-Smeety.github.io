@@ -1,0 +1,20 @@
+BLACKMAGIC SMEETY HOMEPAGE – SEO PUNKT 1
+
+Basis: letzter bereitgestellter Homepage-Stand (FLAG_FIX2 / Layout Fix3 enthalten)
+
+Geändert:
+- JSON-LD WebSite-Schema ergänzt
+- JSON-LD Person/Artist-Identität für Blackmagic Smeety ergänzt
+- Offizielle Website eindeutig über @id verknüpft
+- sameAs-Verknüpfungen ergänzt: Spotify, Amazon Music, YouTube, Facebook, Instagram, TikTok
+
+Nicht geändert:
+- Layout / CSS
+- JavaScript-Funktionen
+- Bilder / Assets
+- Register / Navigation
+- Songinhalte
+- robots.txt
+- sitemap.xml
+
+Ziel: Google maschinenlesbar signalisieren, dass blackmagic-smeety.github.io die offizielle Website von Blackmagic Smeety ist und welche offiziellen Profile zum Künstler gehören.
