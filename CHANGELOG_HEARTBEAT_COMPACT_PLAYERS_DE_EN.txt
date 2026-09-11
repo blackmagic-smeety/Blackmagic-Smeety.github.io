@@ -1,0 +1,6 @@
+Heartbeat YouTube compact player build
+- All 10 language versions shown as compact cards in a 5-column desktop grid / 2 rows.
+- Embedded YouTube player remains available in every card.
+- Responsive 3/2/1-column layouts for smaller screens.
+- German/English interface switch updated for World Song intro, section heading and YouTube button.
+- Existing site layout/assets/navigation otherwise unchanged.

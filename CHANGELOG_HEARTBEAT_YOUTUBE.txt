@@ -1,0 +1,7 @@
+BLACKMAGIC SMEETY HOMEPAGE – HEARTBEAT YOUTUBE BUILD
+
+- World Song / Heartbeat project: all 10 language-version links switched from Suno to the supplied official YouTube videos.
+- Project copy updated from “direkt bei Suno” to “direkt auf YouTube”.
+- Italian label aligned to “Battito”.
+- Arabic label aligned to “نبض القلب · NABD AL-QALB”.
+- No layout, CSS, JavaScript, images or other approved sections changed.

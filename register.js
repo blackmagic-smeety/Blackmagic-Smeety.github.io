@@ -68,6 +68,9 @@ const BMS_TRANSLATIONS = {
   "Kein E-Mail-Programm und kein Login erforderlich. Deine Nachricht wird über Formspark übermittelt.": "No email program or login required. Your message is transmitted via Formspark.",
   "BLACKMAGIC SMEETY · DIREKT ANHÖREN": "BLACKMAGIC SMEETY · LISTEN NOW",
   "Wiedergabe über YouTube": "Playback via YouTube",
+  "Ein gemeinsamer musikalischer Gedanke – erzählt in zehn Sprachen. Klicke auf ein Cover und höre die jeweilige Version direkt auf YouTube.": "One shared musical idea – told in ten languages. Click a cover and listen to each version directly on YouTube.",
+  "10 VERSIONEN · DIREKT ANHÖREN": "10 VERSIONS · LISTEN NOW",
+  "▶ SONG AUF YOUTUBE ↗": "▶ SONG ON YOUTUBE ↗",
   "Impressum": "Legal Notice",
   "Datenschutz": "Privacy Policy",
   "Externe Links": "External Links"
