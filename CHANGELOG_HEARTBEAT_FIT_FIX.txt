@@ -1,9 +1,0 @@
-HEARTBEAT FIT FIX
-- No new images/assets generated or replaced.
-- Desktop: compact 5 x 2 YouTube player grid fitted to project stage.
-- Removed redundant cover-link grid from World Song detail view to save vertical space.
-- Compact project intro and player cards.
-- Tablet: 2 columns.
-- Mobile: 1 column, full-width responsive 16:9 players.
-- Existing DE/EN language switching retained unchanged.
-- All 10 YouTube links/player IDs unchanged.

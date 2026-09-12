@@ -1,8 +1,0 @@
-BLACKMAGIC SMEETY – REGISTER LAYOUT 1
-- Grundnavigation von langer Scroll-Seite auf Register-/Panel-System umgestellt.
-- Desktop: linke vertikale Register, jeweils nur ein Inhaltsbereich sichtbar.
-- HOME, MUSIK, WORLD SONG, ARCHIV, ÜBER MICH und STREAMING integriert.
-- WORLD SONG als kompakte 5x2 Cover-Galerie mit direkten Suno-Links.
-- ARCHIV als vorbereitete Historie mit Me, Myself and I und Blue glasses.
-- Bestehende Originalassets wiederverwendet; keine neuen Bilder erzeugt.
-- Mobile Fallback: Register horizontal, aktiver Bereich normal scrollbar.

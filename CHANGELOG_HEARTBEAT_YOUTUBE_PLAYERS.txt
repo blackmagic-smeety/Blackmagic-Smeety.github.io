@@ -1,7 +1,0 @@
-Blackmagic Smeety Homepage – Heartbeat YouTube Player Build
-
-- Alle 10 Heartbeat-Sprachversionen besitzen jetzt einen eingebetteten YouTube-Player.
-- Datenschutzfreundliche youtube-nocookie.com Embeds verwendet.
-- Bestehende Cover-Links zu YouTube bleiben erhalten.
-- Responsive 2-Spalten-Ansicht Desktop / 1 Spalte Mobil.
-- Keine anderen Homepage-Bereiche oder Assets verändert.

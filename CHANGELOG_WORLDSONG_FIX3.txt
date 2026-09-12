@@ -1,7 +1,0 @@
-WORLD SONG FIX 3
-- Länder-Codes/Emoji-Platzhalter durch echte lokale SVG-Flaggen ersetzt.
-- Alle Flaggen liegen lokal im Projekt unter assets/flags/; keine externe Abhängigkeit.
-- Karten kompakter und hochwertiger gestaltet, mit vollflächiger Flagge, Länderlabel, Titel und direktem Suno-Link.
-- Alle 10 direkten Suno-Links aus dem Nutzer-Feedback beibehalten.
-- Keine neuen Cover erzeugt; Originalcover können später ergänzt werden.
-- Rest der Homepage unverändert auf Basis von WORLDSONG FIX 2 / Layout Fix 1.

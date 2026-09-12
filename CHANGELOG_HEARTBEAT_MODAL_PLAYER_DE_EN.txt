@@ -1,7 +1,0 @@
-HEARTBEAT MODAL PLAYER DE/EN
-- Alle 10 World-Song-Versionen öffnen jetzt denselben separaten Overlay-Player wie die Musikbibliothek.
-- Keine neuen Bilder erzeugt; vorhandene lokale World-Song-Cover werden verwendet.
-- Die eingebetteten Inline-YouTube-Player wurden durch klickbare Cover-Karten ersetzt.
-- Klick auf Cover/Play oder SONG ANHÖREN öffnet den YouTube-Player im Overlay.
-- Deutsch/Englisch-Umschaltung bleibt erhalten; vorhandene Player-Texte werden übersetzt.
-- Responsive Desktop/Tablet/Mobil bleibt erhalten.

@@ -1,2 +1,0 @@
-3D BUILD1 FIX1
-Änderung: Nur das Vordergrund-Ganzkörperbild im 3D-Karussell wurde durch das Ganzkörperbild aus dem Master LAYOUT_FIX3 ersetzt. Alle anderen Inhalte und Funktionen unverändert.

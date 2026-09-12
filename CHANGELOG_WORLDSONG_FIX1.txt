@@ -1,7 +1,0 @@
-WORLD SONG FIX 1
-- Nüchterne Sprachliste durch visuelle 10er-Galerie ersetzt
-- Jede Sprachversion erhält eine große Flagge, Sprache und Titel
-- Zwei vorhandene, vom Nutzer zuvor bereitgestellte Suno-Playlist-Links eingebunden
-- Direkte Track-Links nicht erfunden; SUNO-Hinweise führen bewusst zu den vorhandenen Playlist-Links
-- Keine neuen Bilder generiert
-- Bestehendes Homepage-Layout und restliche Bereiche unverändert gelassen
