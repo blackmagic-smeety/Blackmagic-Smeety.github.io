@@ -29,10 +29,10 @@
     {
       "@type": "Person",
       "@id": "https://blackmagic-smeety.github.io/#artist",
-      "name": "Blackmagic Smeety",
+      "name": "Markus Smeets",
       "url": "https://blackmagic-smeety.github.io/",
       "jobTitle": "Independent Songwriter",
-      "alternateName": "Blackmagic Smeety Music",
+      "alternateName": ["Blackmagic Smeety", "Blackmagic Smeety Music"],
       "description": "Blackmagic Smeety ist ein Independent Songwriter. Er schreibt persönliche Original Songs und nutzt KI sowie Suno als kreatives Produktionswerkzeug für die musikalische Umsetzung.",
       "sameAs": [
         "https://open.spotify.com/intl-de/artist/09eT60Cg6jTwA2iIbJux17",
@@ -115,9 +115,13 @@
     </div>
     <div class="music-toolbar">
       <label class="music-search" aria-label="Songs durchsuchen"><span>⌕</span><input id="music-search-input" type="search" placeholder="Song suchen …" autocomplete="off"></label>
-      <div class="music-count"><b id="music-count-current">7</b> SONGS</div>
+      <div class="music-toolbar-actions"><div class="music-count"><b id="music-count-current">8</b> SONGS</div><button class="discography-open" type="button" data-discography-open>GESAMTE DISKOGRAFIE →</button></div>
     </div>
     <div class="music-grid" id="music-grid">
+      <article class="music-card music-card-with-actions music-card-new" data-title="look at you 2026 version soft rock pop rock 2026">
+        <img src="assets/releases/look-at-you-2026.png" alt="Look at You (2026 Version)">
+        <div class="music-card-copy"><span>NEW · SOFT ROCK · POP ROCK · 2026</span><h3>Look at You (2026 Version)</h3><p>Eine persönliche Geschichte · neu erzählt</p><div class="music-card-actions"><button class="music-play-btn" type="button" data-player-open data-video-id="rsJJvnfMWNA" data-player-title="Look at You (2026 Version)" data-player-cover="assets/releases/look-at-you-2026.png">▶ SONG ANHÖREN</button><button class="music-details-link" type="button" data-open="release">SONG DETAILS →</button></div></div>
+      </article>
       <article class="music-card music-card-with-actions" data-title="me myself and i soul rock 2026">
         <img src="assets/me-myself-and-i-cover.png" alt="Me, Myself and I">
         <div class="music-card-copy"><span>SOUL ROCK · 2026</span><h3>Me, Myself and I</h3><p>Selbstreflexion · eigener Weg</p><b>🏆 LBR 1st Place</b><div class="music-card-actions"><button class="music-play-btn" type="button" data-player-open data-video-id="Bv2s04umF_k" data-player-title="Me, Myself and I" data-player-cover="assets/me-myself-and-i-cover.png">▶ SONG ANHÖREN</button><a class="music-details-link" href="songs/me-myself-and-i/index.html">SONG DETAILS →</a></div></div>
@@ -145,6 +149,39 @@
     </div>
     <div class="music-pagination" id="music-pagination" aria-label="Musikseiten"></div>
   </div>
+  <section class="discography-view" id="discography-view" aria-hidden="true">
+    <div class="discography-top"><button class="discography-back" type="button" data-discography-close>← ZURÜCK ZU MEINE MUSIK</button><span>BLACKMAGIC SMEETY · DISKOGRAFIE</span></div>
+    <div class="discography-head"><div><p class="eyebrow">VERÖFFENTLICHUNGEN</p><h2>Diskografie</h2></div><p>Veröffentlichte Musik von Blackmagic Smeety – unabhängig davon, auf welchen Plattformen ein Release erschienen ist.</p></div>
+    <div class="discography-scroll">
+      <section class="discography-year"><h3>2026</h3><div class="discography-list">
+        <article class="discography-item current"><time>14.09.2026</time><div><b>Look at You (2026 Version)</b><small>SINGLE · SOFT ROCK / POP ROCK</small></div><button type="button" data-open="release">DETAILS →</button></article>
+        <article class="discography-item"><time>30.08.2026</time><div><b>Respect for Life / Respekt vor dem Leben</b><small>BILINGUAL SONG PROJECT</small></div><button type="button" data-music-project="respect-life">DETAILS →</button></article>
+        <article class="discography-item"><time>13.08.2026</time><div><b>What Else Is Waiting, Inside of Me</b><small>SINGLE · SOFTROCK / BALLAD</small></div><button type="button" data-music-project="waiting-inside">DETAILS →</button></article>
+        <article class="discography-item"><time>10.07.2026</time><div><b>Me, Myself and I</b><small>SINGLE · SOUL ROCK</small></div><a href="songs/me-myself-and-i/index.html">DETAILS →</a></article>
+        <article class="discography-item"><time>26.05.2026</time><div><b>Fire in Your Eyes</b><small>SINGLE · R&amp;B / ELECTRO-POP</small></div><button type="button" data-music-project="fire-in-your-eyes">DETAILS →</button></article>
+        <article class="discography-item"><time>11.05.2026</time><div><b>Some Dreams Feel Too Real</b><small>SINGLE · DARK SYNTHPOP / DARK POP</small></div><button type="button" data-music-project="some-dreams-feel-too-real">DETAILS →</button></article>
+        <article class="discography-item"><time>2026</time><div><b>Heute bleib ich</b><small>SINGLE · Veröffentlichungsdatum wird ergänzt</small></div></article>
+        <details class="discography-item discography-album"><summary><time>29.03.2026</time><div><b>Immer noch wir…</b><small>MINI-ALBUM / EP · 5 SONGS</small></div><span>TRACKS +</span></summary><ol><li>Wir wählen uns,…</li><li>Was vor uns liegt,…</li><li>Zwischen uns,…</li><li>Wir finden uns,…</li><li>Und so soll es auch bleiben,…</li></ol></details>
+      </div></section>
+      <section class="discography-year"><h3>2025</h3><div class="discography-list">
+        <article class="discography-item"><time>23.11.2025</time><div><b>X-mas…, by Blackmagic Smeety</b><small>WEIHNACHTS-RELEASE</small></div></article>
+        <article class="discography-item"><time>23.11.2025</time><div><b>Ein Licht erwacht,…</b><small>SINGLE · WEIHNACHTS-RELEASE</small></div></article>
+        <article class="discography-item"><time>30.10.2025</time><div><b>If It Doesn’t Come</b><small>SINGLE</small></div></article>
+        <details class="discography-item discography-album"><summary><time>29.10.2025</time><div><b>Chill Sessions</b><small>ALBUM · 10 SONGS</small></div><span>TRACKS +</span></summary><ol><li>LET GO</li><li>After the rain</li><li>Weightless</li><li>Still here</li><li>Deep Inside</li><li>Breathe Again</li><li>Moments in Between</li><li>Quiet Waves</li><li>The Calm within</li><li>Blue Horizon_Chill Sessions Outro</li></ol></details>
+        <article class="discography-item"><time>15.10.2025</time><div><b>Miles of love…</b><small>SINGLE</small></div></article>
+        <article class="discography-item"><time>15.10.2025</time><div><b>Hol mal Luft</b><small>SINGLE</small></div></article>
+        <article class="discography-item"><time>04.10.2025</time><div><b>Streets without a name</b><small>SINGLE</small></div></article>
+        <article class="discography-item"><time>25.09.2025</time><div><b>Always beside me</b><small>SINGLE</small></div></article>
+        <article class="discography-item"><time>22.09.2025</time><div><b>Syvaron – A New Life</b><small>SINGLE · EINE ECHTE GESCHICHTE</small></div></article>
+        <article class="discography-item"><time>20.08.2025</time><div><b>Life is beautiful</b><small>SINGLE</small></div></article>
+        <article class="discography-item"><time>01.08.2025</time><div><b>Manchmal brauchen wir,…</b><small>SINGLE</small></div></article>
+        <article class="discography-item"><time>06.06.2025</time><div><b>Horizont (Deutsche Version)</b><small>SINGLE</small></div></article>
+        <article class="discography-item"><time>17.05.2025</time><div><b>Game of Life...</b><small>SINGLE</small></div></article>
+        <details class="discography-item discography-album"><summary><time>03.04.2025</time><div><b>First Album, Vol. 2025</b><small>ALBUM · 10 SONGS</small></div><span>TRACKS +</span></summary><ol><li>4 Jahreszeiten</li><li>Es zieht uns mit</li><li>Finally Arrived</li><li>Hey… Weißt du</li><li>I see you walking, I see you running</li><li>Let's fly</li><li>Mehr als Worte</li><li>No compromises</li><li>Nur ein Schatten, nur ein Name</li><li>You know, sometimes</li></ol></details>
+      </div></section>
+      <div class="discography-spotify"><p>Auf Spotify findest du alle dort veröffentlichten Blackmagic-Smeety-Releases direkt in der Diskografie.</p><a href="https://open.spotify.com/intl-de/artist/09eT60Cg6jTwA2iIbJux17/discography" target="_blank" rel="noopener noreferrer">GESAMTE DISKOGRAFIE AUF SPOTIFY ↗</a></div>
+    </div>
+  </section>
 </section>
 <section class="reg-panel projects-panel" id="panel-projects">
 <div class="projects-home active" id="projects-home">

@@ -83,7 +83,16 @@ const BMS_TRANSLATIONS = {
   "▶ SONG AUF YOUTUBE ↗": "▶ SONG ON YOUTUBE ↗",
   "Impressum": "Legal Notice",
   "Datenschutz": "Privacy Policy",
-  "Externe Links": "External Links"
+  "Externe Links": "External Links",
+  "GESAMTE DISKOGRAFIE →": "FULL DISCOGRAPHY →",
+  "← ZURÜCK ZU MEINE MUSIK": "← BACK TO MY MUSIC",
+  "VERÖFFENTLICHUNGEN": "RELEASES",
+  "Diskografie": "Discography",
+  "Veröffentlichte Musik von Blackmagic Smeety – unabhängig davon, auf welchen Plattformen ein Release erschienen ist.": "Released music by Blackmagic Smeety – regardless of which platforms a release appeared on.",
+  "Eine persönliche Geschichte · neu erzählt": "A personal story · retold",
+  "Veröffentlichungsdatum wird ergänzt": "Release date will be added",
+  "Auf Spotify findest du alle dort veröffentlichten Blackmagic-Smeety-Releases direkt in der Diskografie.": "On Spotify you can find all Blackmagic Smeety releases available there directly in the discography.",
+  "GESAMTE DISKOGRAFIE AUF SPOTIFY ↗": "FULL DISCOGRAPHY ON SPOTIFY ↗"
 };
 let bmsLanguage = localStorage.getItem('bms-language') === 'en' ? 'en' : 'de';
 const bmsOriginalText = new WeakMap();
@@ -241,6 +250,19 @@ document.querySelectorAll('[data-legal]').forEach(b=>b.addEventListener('click',
 document.querySelectorAll('[data-legal-close]').forEach(el=>el.addEventListener('click',()=>{legalModal.classList.remove('open');legalModal.setAttribute('aria-hidden','true');}));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&legalModal.classList.contains('open')){legalModal.classList.remove('open');legalModal.setAttribute('aria-hidden','true');}});
 const initial=location.hash.slice(1);if(tabs.some(t=>t.dataset.panel===initial))openPanel(initial,false);
+
+// BUILD 7 · Diskografie innerhalb von MUSIK
+(() => {
+  const library=document.querySelector('.music-library-shell');
+  const view=document.getElementById('discography-view');
+  if(!library||!view)return;
+  const open=()=>{library.classList.add('discography-hidden');view.classList.add('open');view.setAttribute('aria-hidden','false');};
+  const close=()=>{view.classList.remove('open');view.setAttribute('aria-hidden','true');library.classList.remove('discography-hidden');};
+  document.querySelectorAll('[data-discography-open]').forEach(b=>b.addEventListener('click',open));
+  document.querySelectorAll('[data-discography-close]').forEach(b=>b.addEventListener('click',close));
+  view.querySelectorAll('[data-open="release"]').forEach(b=>b.addEventListener('click',()=>{close();openPanel('release');}));
+  view.querySelectorAll('[data-music-project]').forEach(b=>b.addEventListener('click',()=>{const id=b.dataset.musicProject;close();openPanel('projects');showProjectsHome();projectsHome?.classList.remove('active');document.getElementById(`project-${id}`)?.classList.add('active');}));
+})();
 
 // Musikbibliothek: 12 Songs pro Ansicht, Suche und Seitenwechsel ohne Dokument-Scrollen.
 (() => {
