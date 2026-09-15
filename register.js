@@ -48,17 +48,22 @@ const BMS_TRANSLATIONS = {
   "▶ VIDEO AUF YOUTUBE ↗": "▶ WATCH VIDEO ON YOUTUBE ↗",
   "BLACKMAGIC ARCHIV": "BLACKMAGIC ARCHIVE",
   "Meine musikalische Geschichte": "My musical story",
-  "Veröffentlichungen, Alben und persönliche Stationen – chronologisch und direkt anhörbar.": "Releases, albums and personal milestones – chronological and ready to listen to.",
+  "Nicht jeder Song ist nur eine Veröffentlichung. Manche Songs und Projekte markieren einen besonderen Moment auf meinem musikalischen Weg.": "Not every song is simply a release. Some songs and projects mark a special moment on my musical journey.",
   "ALBUM · 10 SONGS": "ALBUM · 10 SONGS",
-  "Der erste große Schritt in der veröffentlichten Albumgeschichte.": "The first major step in my released album story.",
+  "DER ANFANG · ALBUM · 10 SONGS": "THE BEGINNING · ALBUM · 10 SONGS",
+  "Der erste große Schritt: Mit diesem Album begann die veröffentlichte Geschichte von Blackmagic Smeety.": "The first major step: this album marked the beginning of Blackmagic Smeety’s released story.",
   "▶ ALBUM ANHÖREN": "▶ LISTEN TO ALBUM",
-  "SINGLE · EINE ECHTE GESCHICHTE": "SINGLE · A TRUE STORY",
-  "Aus Syvarons Weg zu einem neuen Leben voller Vertrauen und Freude entstand dieser persönliche Song.": "This personal song grew from Syvaron's journey toward a new life filled with trust and joy.",
-  "Eine weitere Station in der musikalischen Entwicklung von Blackmagic Smeety.": "Another milestone in the musical journey of Blackmagic Smeety.",
-  "ALBUM · 10 SONGS · 33 MINUTEN": "ALBUM · 10 SONGS · 33 MINUTES",
-  "Die ruhigere Seite von Blackmagic Smeety als zusammenhängende Chill-Session.": "The calmer side of Blackmagic Smeety, brought together as one continuous chill session.",
-  "MINI-ALBUM · 5 SONGS · 15 MINUTEN": "MINI-ALBUM · 5 SONGS · 15 MINUTES",
-  "Fünf Songs als zusammengehöriges Kapitel der Blackmagic-Smeety-Geschichte.": "Five songs forming one connected chapter in the Blackmagic Smeety story.",
+  "EINE ECHTE GESCHICHTE · SINGLE": "A TRUE STORY · SINGLE",
+  "Aus Syvarons Weg zu einem neuen Leben voller Vertrauen, Kraft und Freude entstand einer meiner persönlichsten Songs.": "Syvaron’s journey toward a new life filled with trust, strength and joy inspired one of my most personal songs.",
+  "NEUE KLANGWELT · ALBUM · 10 SONGS": "A NEW SOUND · ALBUM · 10 SONGS",
+  "Ein bewusst ruhigeres Kapitel und der Schritt in eine andere musikalische Seite von Blackmagic Smeety.": "A deliberately calmer chapter and a step into another musical side of Blackmagic Smeety.",
+  "ZUSAMMENHÄNGENDES KAPITEL · EP · 5 SONGS": "CONNECTED CHAPTER · EP · 5 SONGS",
+  "Fünf Songs wurden zu einem gemeinsamen Kapitel – nicht nur einzelne Titel, sondern eine zusammengehörige Geschichte.": "Five songs became one shared chapter – not just individual tracks, but one connected story.",
+  "▶ EP ANHÖREN": "▶ LISTEN TO EP",
+  "Ein besonderer externer Meilenstein: Platz 1 beim Lava Byte Radio Wednesday Winner unter 42 Songs.": "A special external milestone: 1st place in the Lava Byte Radio Wednesday Winner among 42 songs.",
+  "10 SPRACHEN · EIN SONG · EIN HERZSCHLAG": "10 LANGUAGES · ONE SONG · ONE HEARTBEAT",
+  "Aus einem Songgedanken wurde ein internationales Projekt: zehn Sprachversionen über Länder und Kulturen hinweg.": "One song idea became an international project: ten language versions across countries and cultures.",
+  "PROJEKT ENTDECKEN →": "DISCOVER PROJECT →",
   "DER MENSCH HINTER DEN SONGS": "THE PERSON BEHIND THE SONGS",
   "Mein Name ist Markus Smeets, und als Songwriter veröffentliche ich meine Musik unter dem Namen Blackmagic Smeety. Ich habe in meinem Leben schon vieles gemacht und erlebt. Doch seit ich die Leidenschaft entdeckt habe, meine Gedanken, Gefühle und Erlebnisse in Songs zu verwandeln, ist etwas ganz Besonderes daraus geworden. Es macht mir Freude, euch auf diese musikalische Reise mitzunehmen – Song für Song, Geschichte für Geschichte.": "My name is Markus Smeets, and as a songwriter I release my music under the name Blackmagic Smeety. I have done and experienced many things in my life. But since discovering my passion for turning my thoughts, feelings and experiences into songs, something truly special has grown from it. It is a joy to take you along on this musical journey – song by song, story by story.",
   "Im Mittelpunkt stehen Gedanken, Erinnerungen und Geschichten aus dem Leben. Ich bin Songwriter, nicht Sänger. KI und Suno nutze ich als kreatives Werkzeug, um meine Texte und musikalischen Vorstellungen hörbar zu machen.": "At the heart of my music are thoughts, memories and stories from life. I am a songwriter, not a singer. I use AI and Suno as creative tools to bring my lyrics and musical ideas to life.",
@@ -193,6 +198,7 @@ const projectsHome=document.getElementById('projects-home');
 const projectDetails=[...document.querySelectorAll('.project-detail')];
 function showProjectsHome(){if(!projectsHome)return;projectsHome.classList.add('active');projectDetails.forEach(x=>x.classList.remove('active'));}
 document.querySelectorAll('[data-project]').forEach(b=>b.addEventListener('click',()=>{showProjectsHome();projectsHome.classList.remove('active');const d=document.getElementById(`project-${b.dataset.project}`);if(d)d.classList.add('active');}));
+document.querySelectorAll('[data-open-project]').forEach(b=>b.addEventListener('click',()=>{openPanel('projects');showProjectsHome();if(projectsHome)projectsHome.classList.remove('active');const d=document.getElementById(`project-${b.dataset.openProject}`);if(d)d.classList.add('active');}));
 document.querySelectorAll('.project-back').forEach(b=>b.addEventListener('click',showProjectsHome));
 const legalModal=document.getElementById('legal-modal');
 const legalContent=document.getElementById('legal-content');
@@ -264,38 +270,123 @@ const initial=location.hash.slice(1);if(tabs.some(t=>t.dataset.panel===initial))
   view.querySelectorAll('[data-music-project]').forEach(b=>b.addEventListener('click',()=>{const id=b.dataset.musicProject;close();openPanel('projects');showProjectsHome();projectsHome?.classList.remove('active');document.getElementById(`project-${id}`)?.classList.add('active');}));
 })();
 
-// Musikbibliothek: 12 Songs pro Ansicht, Suche und Seitenwechsel ohne Dokument-Scrollen.
+// BUILD 9.2 CLEAN · Zentrales Musik-Rondell. Keine externen Bibliotheken.
 (() => {
-  const grid=document.getElementById('music-grid');
-  const pager=document.getElementById('music-pagination');
-  const search=document.getElementById('music-search-input');
-  const count=document.getElementById('music-count-current');
-  if(!grid||!pager)return;
-  const cards=[...grid.querySelectorAll('.music-card')];
-  const PER_PAGE=12;
-  let page=1,query='';
-  const normalized=v=>(v||'').toLocaleLowerCase('de-DE').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-  function filtered(){const q=normalized(query.trim());return q?cards.filter(c=>normalized(c.dataset.title||c.textContent).includes(q)):cards;}
-  function render(){
-    const list=filtered(),pages=Math.max(1,Math.ceil(list.length/PER_PAGE));page=Math.min(page,pages);
-    cards.forEach(c=>c.hidden=true);
-    list.slice((page-1)*PER_PAGE,page*PER_PAGE).forEach(c=>c.hidden=false);
-    if(count)count.textContent=String(list.length);
-    pager.innerHTML='';
-    if(pages>1){
-      const make=(txt,target,active=false)=>{const b=document.createElement('button');b.type='button';b.textContent=txt;b.classList.toggle('active',active);b.addEventListener('click',()=>{page=target;render();});return b};
-      if(page>1)pager.append(make('‹',page-1));
-      for(let i=1;i<=pages;i++)pager.append(make(String(i),i,i===page));
-      if(page<pages)pager.append(make('›',page+1));
-    }
+  const track = document.getElementById('music-carousel-track');
+  const showroom = document.getElementById('music-carousel-showroom');
+  const info = document.getElementById('music-carousel-info');
+  const search = document.getElementById('music-search-input');
+  const count = document.getElementById('music-count-current');
+  if (!track || !showroom || !info) return;
+
+  const cards = Array.from(track.querySelectorAll('.music-carousel-card'));
+  let visible = cards.slice();
+  let active = 0;
+  let pointerStart = null;
+  let dragged = false;
+
+  const normalizeText = value => (value || '').toLocaleLowerCase('de-DE').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const wrap = value => visible.length ? ((value % visible.length) + visible.length) % visible.length : 0;
+
+  function distance(index) {
+    let value = wrap(index - active);
+    if (value > visible.length / 2) value -= visible.length;
+    return value;
   }
-  search?.addEventListener('input',e=>{query=e.target.value;page=1;render();});
-  document.querySelectorAll('[data-music-project]').forEach(card=>card.addEventListener('click',e=>{
-    e.preventDefault();e.stopPropagation();
-    openPanel('projects');
-    showProjectsHome();projectsHome.classList.remove('active');
-    const d=document.getElementById(`project-${card.dataset.musicProject}`);if(d)d.classList.add('active');
+
+  function showInfo() {
+    info.replaceChildren();
+    if (!visible.length) {
+      const empty = document.createElement('div');
+      empty.className = 'music-carousel-empty';
+      empty.textContent = bmsLanguage === 'en' ? 'No matching songs found.' : 'Keine passenden Songs gefunden.';
+      info.appendChild(empty);
+      return;
+    }
+    const sourceCard = visible[active];
+    const sourceCopy = sourceCard.querySelector('.music-card-copy');
+    if (!sourceCopy) return;
+    const copy = sourceCopy.cloneNode(true);
+    copy.classList.remove('music-card-copy');
+    copy.querySelectorAll('[data-player-open]').forEach(button => {
+      button.addEventListener('click', event => {
+        event.preventDefault();
+        sourceCard.querySelector('[data-player-open]')?.click();
+      });
+    });
+    info.appendChild(copy);
+  }
+
+  function render() {
+    cards.forEach(card => {
+      card.hidden = !visible.includes(card);
+      card.classList.remove('is-front', 'is-back');
+    });
+    if (count) count.textContent = String(visible.length);
+    if (!visible.length) { showInfo(); return; }
+
+    visible.forEach((card, index) => {
+      const d = distance(index);
+      const a = Math.abs(d);
+      const x = d * 112;
+      const z = a === 0 ? 105 : a === 1 ? -15 : a === 2 ? -95 : -170;
+      const rotate = d === 0 ? 0 : d < 0 ? 24 : -24;
+      const scale = a === 0 ? 1 : a === 1 ? .78 : a === 2 ? .61 : .48;
+      const opacity = a === 0 ? 1 : a === 1 ? .68 : a === 2 ? .36 : .12;
+      const blur = a === 0 ? 0 : a === 1 ? .8 : a === 2 ? 2.4 : 4.5;
+      card.style.setProperty('--mx', x + 'px');
+      card.style.setProperty('--mz', z + 'px');
+      card.style.setProperty('--mry', rotate + 'deg');
+      card.style.setProperty('--ms', String(scale));
+      card.style.setProperty('--mop', String(opacity));
+      card.style.setProperty('--mblur', blur + 'px');
+      card.style.zIndex = String(20 - a);
+      card.classList.toggle('is-front', a === 0);
+      card.classList.toggle('is-back', a > 2);
+      card.setAttribute('aria-current', a === 0 ? 'true' : 'false');
+    });
+    showInfo();
+  }
+
+  function turn(direction) {
+    if (!visible.length) return;
+    active = wrap(active + direction);
+    render();
+  }
+
+  showroom.querySelector('.music-carousel-prev')?.addEventListener('click', () => turn(-1));
+  showroom.querySelector('.music-carousel-next')?.addEventListener('click', () => turn(1));
+  cards.forEach(card => card.addEventListener('click', () => {
+    if (dragged) return;
+    const index = visible.indexOf(card);
+    if (index >= 0) { active = index; render(); }
   }));
+
+  const stage = showroom.querySelector('.music-carousel-stage');
+  stage?.addEventListener('pointerdown', event => { pointerStart = event.clientX; dragged = false; });
+  stage?.addEventListener('pointermove', event => { if (pointerStart !== null && Math.abs(event.clientX - pointerStart) > 12) dragged = true; });
+  stage?.addEventListener('pointerup', event => {
+    if (pointerStart === null) return;
+    const delta = event.clientX - pointerStart;
+    if (Math.abs(delta) > 42) turn(delta < 0 ? 1 : -1);
+    pointerStart = null;
+    window.setTimeout(() => { dragged = false; }, 0);
+  });
+  stage?.addEventListener('pointercancel', () => { pointerStart = null; dragged = false; });
+  stage?.addEventListener('wheel', event => {
+    if (Math.abs(event.deltaX) > 18 || Math.abs(event.deltaY) > 28) {
+      event.preventDefault();
+      turn((event.deltaX || event.deltaY) > 0 ? 1 : -1);
+    }
+  }, { passive: false });
+
+  search?.addEventListener('input', event => {
+    const query = normalizeText(event.target.value.trim());
+    visible = query ? cards.filter(card => normalizeText(card.dataset.title || card.textContent).includes(query)) : cards.slice();
+    active = 0;
+    render();
+  });
+
   render();
 })();
 
