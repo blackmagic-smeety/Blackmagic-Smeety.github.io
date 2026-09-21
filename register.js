@@ -6,6 +6,10 @@
 const BMS_TRANSLATIONS = {
   "KLICK AUF EIN REGISTER": "CLICK A TAB",
   "MUSIK": "MUSIC",
+  "ERFOLGE": "AWARDS",
+  "Vier Songs. Vier Platzierungen. Dreh durch die bisherigen Radio-Erfolge von Blackmagic Smeety und hör dir den jeweiligen Song direkt an.": "Four songs. Four placements. Rotate through Blackmagic Smeety’s radio achievements and listen to each song directly.",
+  "Vorherige Auszeichnung": "Previous award",
+  "Nächste Auszeichnung": "Next award",
   "RELEASE": "RELEASE",
   "← ZURÜCK": "← BACK",
   "NEW RELEASE": "NEW RELEASE",
@@ -95,9 +99,15 @@ const BMS_TRANSLATIONS = {
   "Diskografie": "Discography",
   "Veröffentlichte Musik von Blackmagic Smeety – unabhängig davon, auf welchen Plattformen ein Release erschienen ist.": "Released music by Blackmagic Smeety – regardless of which platforms a release appeared on.",
   "Eine persönliche Geschichte · neu erzählt": "A personal story · retold",
+  "🥈 LBR · 2. PLATZ": "🥈 LBR · 2ND PLACE",
   "Veröffentlichungsdatum wird ergänzt": "Release date will be added",
   "Auf Spotify findest du alle dort veröffentlichten Blackmagic-Smeety-Releases direkt in der Diskografie.": "On Spotify you can find all Blackmagic Smeety releases available there directly in the discography.",
-  "GESAMTE DISKOGRAFIE AUF SPOTIFY ↗": "FULL DISCOGRAPHY ON SPOTIFY ↗"
+  "GESAMTE DISKOGRAFIE AUF SPOTIFY ↗": "FULL DISCOGRAPHY ON SPOTIFY ↗",
+  "Mein Musikkatalog – Veröffentlichungen und Songs kompakt gesammelt. Jahr wählen, durchblättern, entdecken. Ohne endloses Scrollen.": "My music catalogue – releases and songs collected in a compact format. Choose a year, browse and discover. No endless scrolling.",
+  "ALLE": "ALL",
+  "ALBEN / EPs": "ALBUMS / EPs",
+  "SINGLES": "SINGLES",
+  "AUF SPOTIFY ÖFFNEN ↗": "OPEN ON SPOTIFY ↗"
 };
 let bmsLanguage = localStorage.getItem('bms-language') === 'en' ? 'en' : 'de';
 const bmsOriginalText = new WeakMap();
@@ -538,3 +548,150 @@ const initial=location.hash.slice(1);if(tabs.some(t=>t.dataset.panel===initial))
   document.querySelectorAll('[data-player-close]').forEach(el=>el.addEventListener('click',close));
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('is-open'))close();});
 })();
+
+// ==========================================================
+// BUILD 9.3 · BLACKMAGIC ARCHIV — paginierter Musikkatalog
+// Desktop: 8 Einträge pro Seite, Mobile: 4. Kein endloses Archiv-Scrollen.
+// ==========================================================
+(()=>{
+  const grid=document.getElementById('archiveCatalogGrid');
+  if(!grid)return;
+  const logo='assets/blackmagic-smeety-logo.png';
+  const items=[
+    {y:'2025',t:'album',d:'03.04.2025',n:'First Album, Vol. 2025',m:'Album · 10 Songs',c:logo},
+    {y:'2025',t:'single',d:'03.04.2025',n:'4 Jahreszeiten',m:'First Album, Vol. 2025',c:logo},
+    {y:'2025',t:'single',d:'03.04.2025',n:'Es zieht uns mit',m:'First Album, Vol. 2025',c:logo},
+    {y:'2025',t:'single',d:'03.04.2025',n:'Finally Arrived',m:'First Album, Vol. 2025',c:logo},
+    {y:'2025',t:'single',d:'03.04.2025',n:'Hey... Weißt du',m:'First Album, Vol. 2025',c:logo},
+    {y:'2025',t:'single',d:'03.04.2025',n:'I see you walking, I see you running',m:'First Album, Vol. 2025',c:logo},
+    {y:'2025',t:'single',d:'03.04.2025',n:"Let's fly",m:'First Album, Vol. 2025',c:logo},
+    {y:'2025',t:'single',d:'03.04.2025',n:'Mehr als Worte',m:'First Album, Vol. 2025',c:logo},
+    {y:'2025',t:'single',d:'03.04.2025',n:'No compromises',m:'First Album, Vol. 2025',c:logo},
+    {y:'2025',t:'single',d:'03.04.2025',n:'Nur ein Schatten, nur ein Name',m:'First Album, Vol. 2025',c:logo},
+    {y:'2025',t:'single',d:'03.04.2025',n:'You know, sometimes',m:'First Album, Vol. 2025',c:logo},
+    {y:'2025',t:'single',d:'17.05.2025',n:'Game of Life...',m:'Single',c:logo},
+    {y:'2025',t:'single',d:'06.06.2025',n:'Horizont (Deutsche Version)',m:'Single',c:logo},
+    {y:'2025',t:'single',d:'06.06.2025',n:'Horizont (Englische Version)',m:'Single',c:logo},
+    {y:'2025',t:'single',d:'01.08.2025',n:'Manchmal brauchen wir,...',m:'Single',c:logo},
+    {y:'2025',t:'single',d:'20.08.2025',n:'Life is beautiful',m:'Single',c:logo},
+    {y:'2025',t:'single',d:'22.09.2025',n:'Syvaron – A New Life',m:'Single · echte Geschichte',c:logo},
+    {y:'2025',t:'single',d:'25.09.2025',n:'Always beside me',m:'Single',c:logo},
+    {y:'2025',t:'single',d:'04.10.2025',n:'Streets without a name',m:'Single',c:logo},
+    {y:'2025',t:'single',d:'15.10.2025',n:'Miles of love...',m:'Single',c:logo},
+    {y:'2025',t:'single',d:'15.10.2025',n:'Hol mal Luft',m:'Single',c:logo},
+    {y:'2025',t:'album',d:'29.10.2025',n:'Chill Sessions',m:'Album · 10 Songs',c:logo},
+    {y:'2025',t:'single',d:'29.10.2025',n:'LET GO',m:'Chill Sessions',c:logo},
+    {y:'2025',t:'single',d:'29.10.2025',n:'After the rain',m:'Chill Sessions',c:logo},
+    {y:'2025',t:'single',d:'29.10.2025',n:'Weightless',m:'Chill Sessions',c:logo},
+    {y:'2025',t:'single',d:'29.10.2025',n:'Still here',m:'Chill Sessions',c:logo},
+    {y:'2025',t:'single',d:'29.10.2025',n:'Deep Inside',m:'Chill Sessions',c:logo},
+    {y:'2025',t:'single',d:'29.10.2025',n:'Breathe Again',m:'Chill Sessions',c:logo},
+    {y:'2025',t:'single',d:'29.10.2025',n:'Moments in Between',m:'Chill Sessions',c:logo},
+    {y:'2025',t:'single',d:'29.10.2025',n:'Quiet Waves',m:'Chill Sessions',c:logo},
+    {y:'2025',t:'single',d:'29.10.2025',n:'The Calm within',m:'Chill Sessions',c:logo},
+    {y:'2025',t:'single',d:'29.10.2025',n:'Blue Horizon_Chill Sessions Outro',m:'Chill Sessions',c:logo},
+    {y:'2025',t:'single',d:'30.10.2025',n:"If It Doesn’t Come from the Heart",m:'Single',c:logo},
+    {y:'2025',t:'single',d:'23.11.2025',n:'X-mas..., by Blackmagic Smeety',m:'Weihnachtsedition',c:logo},
+    {y:'2025',t:'single',d:'23.11.2025',n:'Ein Licht erwacht,...',m:'Weihnachtsedition',c:logo},
+    {y:'2025',t:'single',d:'2025',n:'OOHH',m:'Single · Datum offen',c:logo},
+    {y:'2026',t:'album',d:'29.03.2026',n:'Immer noch wir…',m:'EP · 5 Songs',c:logo},
+    {y:'2026',t:'single',d:'29.03.2026',n:'Wir wählen uns,…',m:'Immer noch wir…',c:logo},
+    {y:'2026',t:'single',d:'29.03.2026',n:'Was vor uns liegt,…',m:'Immer noch wir…',c:logo},
+    {y:'2026',t:'single',d:'29.03.2026',n:'Zwischen uns,…',m:'Immer noch wir…',c:logo},
+    {y:'2026',t:'single',d:'29.03.2026',n:'Wir finden uns,…',m:'Immer noch wir…',c:logo},
+    {y:'2026',t:'single',d:'29.03.2026',n:'Und so soll es auch bleiben,…',m:'Immer noch wir…',c:logo},
+    {y:'2026',t:'single',d:'11.05.2026',n:'Some Dreams Feel Too Real',m:'Single',c:'assets/projects/some-dreams-feel-too-real.jpeg'},
+    {y:'2026',t:'single',d:'26.05.2026',n:'Fire in Your Eyes',m:'Single',c:'assets/projects/fire-in-your-eyes.jpeg'},
+    {y:'2026',t:'single',d:'10.07.2026',n:'Me, Myself and I',m:'Single · LBR 1st Place',c:'assets/me-myself-and-i-cover.png'},
+    {y:'2026',t:'single',d:'13.08.2026',n:'What Else Is Waiting, Inside of Me',m:'Single · LBR 2nd Place',c:'assets/projects/waiting-inside.jpeg'},
+    {y:'2026',t:'single',d:'30.08.2026',n:'Respect for Life',m:'Single',c:'assets/projects/respect-for-life.jpeg'},
+    {y:'2026',t:'single',d:'2026',n:'Heute bleib ich',m:'Single · Datum offen',c:logo},
+    {y:'2026',t:'album',d:'2026',n:'THE WORLD SONG',m:'Projekt · 10 Sprachversionen',c:'assets/worldsong/worldsong-main.png'},
+    {y:'2026',t:'single',d:'14.09.2026',n:'Look at You (2026 Version)',m:'Single · Neuinterpretation',c:'assets/releases/look-at-you-2026.png'}
+  ];
+  let filter='all',page=0;
+  const count=document.getElementById('archiveCatalogCount'),pages=document.getElementById('archiveCatalogPages');
+  const perPage=()=>window.matchMedia('(max-width:520px)').matches?4:8;
+  const filtered=()=>items.filter(x=>filter==='all'||x.y===filter||x.t===filter);
+  function render(){
+    const list=filtered(),pp=perPage(),total=Math.max(1,Math.ceil(list.length/pp)); page=Math.min(page,total-1);
+    const slice=list.slice(page*pp,page*pp+pp);
+    grid.innerHTML=slice.map(x=>`<article class="archive-catalog-card"><img src="${x.c}" alt="${x.n.replaceAll('"','&quot;')} Cover" onerror="this.onerror=null;this.src='${logo}'"><div class="archive-catalog-copy"><small>${x.d} · ${x.y}</small><b>${x.n}</b><span>${x.m}</span></div></article>`).join('');
+    count.textContent=`${String(page+1).padStart(2,'0')} / ${String(total).padStart(2,'0')} · ${list.length} TITEL`;
+    pages.innerHTML=Array.from({length:total},(_,i)=>`<button type="button" class="archive-page-dot${i===page?' is-active':''}" data-page="${i}" aria-label="Katalogseite ${i+1}"></button>`).join('');
+    if(typeof bmsTranslateInterface==='function')bmsTranslateInterface(bmsLanguage);
+  }
+  document.querySelectorAll('.archive-filter').forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.archiveFilter;page=0;document.querySelectorAll('.archive-filter').forEach(x=>x.classList.toggle('is-active',x===b));render()}));
+  document.querySelector('.archive-catalog-prev')?.addEventListener('click',()=>{const total=Math.max(1,Math.ceil(filtered().length/perPage()));page=(page-1+total)%total;render()});
+  document.querySelector('.archive-catalog-next')?.addEventListener('click',()=>{const total=Math.max(1,Math.ceil(filtered().length/perPage()));page=(page+1)%total;render()});
+  pages?.addEventListener('click',e=>{const b=e.target.closest('[data-page]');if(!b)return;page=Number(b.dataset.page)||0;render()});
+  let sx=0;grid.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});grid.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)<45)return;document.querySelector(dx<0?'.archive-catalog-next':'.archive-catalog-prev')?.click()},{passive:true});
+  window.addEventListener('resize',()=>{page=0;render()});render();
+})();
+
+// ==========================================================
+// BUILD 9.5.3 · AWARDS & RADIO ACHIEVEMENTS — 3D-Rondell
+// Aktive Award-Karte öffnet kompakte Song-/Detail-Auswahl.
+// ==========================================================
+(()=>{
+  const track=document.getElementById('awards-carousel-track');
+  const showroom=document.getElementById('awards-carousel-showroom');
+  const info=document.getElementById('awards-carousel-info');
+  if(!track||!showroom||!info)return;
+  const cards=Array.from(track.querySelectorAll('.awards-carousel-card'));
+  let active=0,startX=null,dragged=false,pointerCard=null,suppressClick=false;
+  const wrap=n=>(n+cards.length)%cards.length;
+  const dist=i=>{let d=wrap(i-active);if(d>cards.length/2)d-=cards.length;return d};
+  function closeInfo(){info.classList.remove('is-open');info.replaceChildren()}
+  function showInfo(){
+    info.replaceChildren();
+    const source=cards[active];
+    const copy=source.querySelector('.award-card-copy')?.cloneNode(true);
+    if(!copy)return;
+    copy.style.display='block';
+    const close=document.createElement('button');
+    close.type='button';close.className='awards-info-close';close.setAttribute('aria-label','Schließen');close.textContent='×';
+    close.addEventListener('click',closeInfo);
+    copy.querySelectorAll('[data-player-open]').forEach(btn=>btn.addEventListener('click',e=>{e.preventDefault();closeInfo();source.querySelector('[data-player-open]')?.click()}));
+    copy.querySelectorAll('[data-award-worldsong]').forEach(btn=>btn.addEventListener('click',()=>{
+      closeInfo();openPanel('projects');showProjectsHome();projectsHome?.classList.remove('active');document.getElementById('project-worldsong')?.classList.add('active');
+    }));
+    info.append(close,copy);info.classList.add('is-open');
+    if(typeof bmsTranslateInterface==='function')bmsTranslateInterface(bmsLanguage);
+  }
+  function render(){cards.forEach((card,i)=>{const d=dist(i),a=Math.abs(d);card.style.setProperty('--ax',(d*178)+'px');card.style.setProperty('--az',(a===0?100:a===1?-25:-130)+'px');card.style.setProperty('--ary',(d===0?0:d<0?24:-24)+'deg');card.style.setProperty('--as',String(a===0?1:a===1?.76:.56));card.style.setProperty('--aop',String(a===0?1:a===1?.64:.24));card.style.setProperty('--ablur',(a===0?0:a===1?.7:2.6)+'px');card.style.zIndex=String(20-a);card.classList.toggle('is-front',a===0);card.setAttribute('aria-current',a===0?'true':'false')})}
+  const step=n=>{closeInfo();active=wrap(active+n);render()};
+  showroom.querySelector('.awards-carousel-prev')?.addEventListener('click',()=>step(-1));
+  showroom.querySelector('.awards-carousel-next')?.addEventListener('click',()=>step(1));
+  cards.forEach((card,i)=>{
+    card.tabIndex=0;
+    card.setAttribute('role','button');
+    card.addEventListener('click',()=>{
+      if(suppressClick){suppressClick=false;return;}
+      if(dragged)return;
+      if(i===active)showInfo();else{closeInfo();active=i;render()}
+    });
+    card.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&i===active){e.preventDefault();showInfo();}});
+  });
+  track.addEventListener('pointerdown',e=>{
+    startX=e.clientX;dragged=false;pointerCard=e.target.closest('.awards-carousel-card');
+    track.setPointerCapture?.(e.pointerId)
+  });
+  track.addEventListener('pointermove',e=>{if(startX!==null&&Math.abs(e.clientX-startX)>8)dragged=true});
+  track.addEventListener('pointerup',e=>{
+    if(startX===null)return;
+    const dx=e.clientX-startX;
+    if(Math.abs(dx)>40){suppressClick=true;step(dx<0?1:-1)}
+    else if(!dragged&&pointerCard){
+      const i=cards.indexOf(pointerCard);
+      suppressClick=true;
+      if(i===active)showInfo();else if(i>=0){closeInfo();active=i;render()}
+    }
+    startX=null;pointerCard=null;
+    setTimeout(()=>{dragged=false;suppressClick=false},80)
+  });
+  showroom.addEventListener('wheel',e=>{if(Math.abs(e.deltaY)<8&&Math.abs(e.deltaX)<8)return;e.preventDefault();step((e.deltaY||e.deltaX)>0?1:-1)},{passive:false});
+  info.addEventListener('click',e=>{if(e.target===info)closeInfo()});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&info.classList.contains('is-open'))closeInfo()});
+  render();
+})();;
