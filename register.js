@@ -93,6 +93,7 @@ const BMS_TRANSLATIONS = {
   "Impressum": "Legal Notice",
   "Datenschutz": "Privacy Policy",
   "Externe Links": "External Links",
+  "Barrierefreiheit": "Accessibility",
   "GESAMTE DISKOGRAFIE →": "FULL DISCOGRAPHY →",
   "← ZURÜCK ZU MEINE MUSIK": "← BACK TO MY MUSIC",
   "VERÖFFENTLICHUNGEN": "RELEASES",
@@ -695,3 +696,30 @@ const initial=location.hash.slice(1);if(tabs.some(t=>t.dataset.panel===initial))
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&info.classList.contains('is-open'))closeInfo()});
   render();
 })();;
+
+// BUILD 9.6.1 CLEAN · Navigation 2.0 controller
+(()=>{
+  const trigger=document.getElementById('nav2-trigger');
+  const drawer=document.getElementById('nav2-drawer');
+  const backdrop=document.getElementById('nav2-backdrop');
+  const closeBtn=document.getElementById('nav2-close');
+  if(!trigger||!drawer||!backdrop||!closeBtn)return;
+  const setLabels=()=>{
+    const en=document.documentElement.lang==='en';
+    const label=trigger.querySelector('.nav2-trigger-label');
+    const title=drawer.querySelector('.nav2-title');
+    if(label)label.textContent=en?'MENU':'MENÜ';
+    if(title)title.textContent=en?'MENU':'MENÜ';
+    trigger.setAttribute('aria-label',en?'Open menu':'Menü öffnen');
+    closeBtn.setAttribute('aria-label',en?'Close menu':'Menü schließen');
+  };
+  const open=()=>{drawer.classList.add('is-open');drawer.setAttribute('aria-hidden','false');trigger.setAttribute('aria-expanded','true');backdrop.hidden=false;setLabels();};
+  const close=()=>{drawer.classList.remove('is-open');drawer.setAttribute('aria-hidden','true');trigger.setAttribute('aria-expanded','false');backdrop.hidden=true;};
+  trigger.addEventListener('click',()=>drawer.classList.contains('is-open')?close():open());
+  closeBtn.addEventListener('click',close);
+  backdrop.addEventListener('click',close);
+  drawer.querySelectorAll('.reg-tab').forEach(btn=>btn.addEventListener('click',close));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+  document.querySelectorAll('.language-flag').forEach(btn=>btn.addEventListener('click',()=>setTimeout(setLabels,0)));
+  setLabels();
+})();

@@ -12,3 +12,8 @@ BUILD 2 – RELEASE LOOK AT YOU
 - Lyrics/Deutsche Übersetzung bleiben als vorbereitete Platzhalter für den nächsten Schritt.
 
 BUILD 9.4: Look at You (2026 Version) – LBR 2. Platz auf Release-Ansicht und Musik-Rondell ergänzt.
+
+BUILD 9.7 CLEAN – ACCESSIBILITY
+Basis: BUILD 9.6.2 CLEAN
+Ergaenzt ohne Redesign: Skip-Link, sichtbarer Tastaturfokus, Tastaturbedienung Musik-Rondell,
+Fokus-Management/Fokusfalle fuer Dialoge, Fokus-Rueckgabe und prefers-reduced-motion.

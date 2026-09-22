@@ -47,18 +47,30 @@
 }
 </script>
 </head><body class="register-site">
+<a class="skip-link" href="#main-content">Direkt zum Hauptinhalt</a>
 <header class="reg-header"><div class="reg-brand"><img src="assets/blackmagic-smeety-logo.png" alt="Blackmagic Smeety Logo"><span>BLACKMAGIC <b>SMEETY</b></span></div><div class="reg-header-tools">
   <div class="language-switcher" aria-label="Sprache wählen / Choose language">
     <button class="language-flag active" type="button" data-lang="de" aria-label="Deutsch" title="Deutsch"><img class="language-flag-img" src="assets/language/flag-de.svg" alt="" aria-hidden="true"></button>
     <button class="language-flag" type="button" data-lang="en" aria-label="English" title="English"><img class="language-flag-img" src="assets/language/flag-gb.svg" alt="" aria-hidden="true"></button>
   </div>
-  <div class="reg-hint">KLICK AUF EIN REGISTER</div>
+  
 </div></header>
 <div class="reg-shell">
-<nav class="reg-tabs" aria-label="Hauptnavigation">
-<button class="reg-tab active" data-panel="home"><span>HOME</span></button><button class="reg-tab release-tab" data-panel="release"><span>RELEASE <em>NEW</em></span></button><button class="reg-tab" data-panel="music"><span>MUSIK</span></button><button class="reg-tab" data-panel="awards"><span>ERFOLGE</span></button><button class="reg-tab" data-panel="projects"><span>PROJEKTE</span></button><button class="reg-tab" data-panel="archive"><span>ARCHIV</span></button><button class="reg-tab" data-panel="about"><span>ÜBER MICH</span></button><button class="reg-tab" data-panel="streaming"><span>STREAMING</span></button><button class="reg-tab" data-panel="guestbook"><span>GÄSTEBUCH</span></button>
+<button class="nav2-trigger" id="nav2-trigger" type="button" aria-label="Menü öffnen" aria-controls="nav2-drawer" aria-expanded="false"><span class="nav2-burger" aria-hidden="true">☰</span><span class="nav2-trigger-label">MENÜ</span></button>
+<div class="nav2-backdrop" id="nav2-backdrop" hidden></div>
+<nav class="reg-tabs nav2-drawer" id="nav2-drawer" aria-label="Hauptnavigation" aria-hidden="true">
+<div class="nav2-head"><span class="nav2-title">MENÜ</span><button class="nav2-close" id="nav2-close" type="button" aria-label="Menü schließen">×</button></div>
+<button class="reg-tab active" data-panel="home"><span>HOME</span></button>
+<button class="reg-tab release-tab" data-panel="release"><span>RELEASE <em>NEW</em></span></button>
+<button class="reg-tab" data-panel="music"><span>MUSIK</span></button>
+<button class="reg-tab" data-panel="awards"><span>ERFOLGE</span></button>
+<button class="reg-tab" data-panel="projects"><span>PROJEKTE</span></button>
+<button class="reg-tab" data-panel="archive"><span>ARCHIV</span></button>
+<button class="reg-tab" data-panel="about"><span>ÜBER MICH</span></button>
+<button class="reg-tab" data-panel="streaming"><span>STREAMING</span></button>
+<button class="reg-tab" data-panel="guestbook"><span>GÄSTEBUCH</span></button>
 </nav>
-<main class="reg-stage">
+<main class="reg-stage" id="main-content" tabindex="-1">
 <section class="reg-panel active home-panel" id="panel-home">
 <div class="home-bg"><img src="assets/me-myself-and-i-cover.png" alt=""></div><div class="home-shade"></div>
 <div class="home-content home-content-3d">
@@ -526,6 +538,7 @@
     <div class="song-player-frame"><iframe id="song-player-frame" title="Blackmagic Smeety – YouTube Player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
   </section>
 </div>
-<div class="legal-nav" aria-label="Rechtliche Hinweise"><button data-legal="impressum">Impressum</button><button data-legal="datenschutz">Datenschutz</button><button data-legal="links">Externe Links</button></div>
+<div class="legal-nav" aria-label="Rechtliche Hinweise"><button data-legal="impressum">Impressum</button><button data-legal="datenschutz">Datenschutz</button><button data-legal="links">Externe Links</button><a class="legal-accessibility-link" href="barrierefreiheit/">Barrierefreiheit</a></div>
 <div class="legal-modal" id="legal-modal" aria-hidden="true"><div class="legal-backdrop" data-legal-close></div><section class="legal-dialog" role="dialog" aria-modal="true" aria-labelledby="legal-title"><button class="legal-close" data-legal-close aria-label="Schließen">×</button><div id="legal-content"></div></section></div>
-<script src="register.js"></script></body></html>
+<script src="register.js"></script>
+<script src="accessibility.js"></script></body></html>
