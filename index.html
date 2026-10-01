@@ -47,6 +47,202 @@
   ]
 }
 </script>
+
+<style id="bs-release-typography-fix-984">
+/* Einheitliches Blackmagic-Smeety Release-Schriftdesign */
+.release-stage .release-copy h1,
+.release-stage [data-release-title]{
+  font-size:clamp(34px,3.45vw,58px) !important;
+  line-height:.94 !important;
+  letter-spacing:-.025em !important;
+  max-width:100% !important;
+  margin:0 0 8px !important;
+}
+.release-stage .release-version{
+  font-size:clamp(22px,1.85vw,31px) !important;
+  line-height:1 !important;
+  letter-spacing:.22em !important;
+  margin:0 0 13px !important;
+}
+.release-stage .release-lead{
+  font-size:clamp(15px,1.08vw,18px) !important;
+  line-height:1.42 !important;
+}
+.release-stage .release-meta{
+  font-size:12px !important;
+  line-height:1.25 !important;
+  letter-spacing:.11em !important;
+}
+.release-stage .release-actions,
+.release-stage .release-actions *{
+  letter-spacing:.035em;
+}
+
+/* Story: Inhalt statt künstlich hoher Scrollfläche */
+#releaseStoryModal .modal-card,
+#releaseStoryModal .story-modal-card,
+.release-story-modal .modal-card{
+  width:min(980px,calc(100vw - 48px)) !important;
+  height:auto !important;
+  min-height:0 !important;
+  max-height:calc(100vh - 110px) !important;
+  overflow:hidden !important;
+}
+#releaseStoryModal .modal-body,
+#releaseStoryModal .story-body,
+.release-story-modal .modal-body{
+  overflow-y:auto !important;
+  max-height:calc(100vh - 190px) !important;
+  padding:30px 42px 34px !important;
+  scrollbar-width:thin;
+}
+#releaseStoryModal h2,
+.release-story-modal h2{
+  font-size:clamp(27px,2.35vw,40px) !important;
+  line-height:1.08 !important;
+  letter-spacing:-.015em !important;
+  margin:0 0 18px !important;
+}
+#releaseStoryModal h3,
+.release-story-modal h3{
+  font-size:clamp(13px,1vw,16px) !important;
+  letter-spacing:.16em !important;
+  margin:0 0 14px !important;
+}
+#releaseStoryModal p,
+.release-story-modal p{
+  font-size:clamp(14px,1vw,17px) !important;
+  line-height:1.55 !important;
+  margin:0 0 14px !important;
+}
+#releaseStoryModal blockquote,
+.release-story-modal blockquote{
+  font-size:clamp(19px,1.65vw,27px) !important;
+  line-height:1.28 !important;
+  margin:20px 0 0 !important;
+  padding:18px 22px !important;
+}
+
+/* Auf normalen Desktop-Höhen passt die Story ohne sichtbaren Scrollbalken. */
+@media (min-width:901px) and (min-height:720px){
+  #releaseStoryModal .modal-body,
+  #releaseStoryModal .story-body,
+  .release-story-modal .modal-body{
+    overflow-y:hidden !important;
+  }
+}
+@media (max-width:900px){
+  .release-stage .release-copy h1,
+  .release-stage [data-release-title]{
+    font-size:clamp(30px,8.5vw,46px) !important;
+  }
+  #releaseStoryModal .modal-body,
+  #releaseStoryModal .story-body,
+  .release-story-modal .modal-body{
+    padding:22px 20px 26px !important;
+    overflow-y:auto !important;
+  }
+}
+</style>
+
+
+<style id="bs-release-real-selector-fix-985">
+/* REAL SELECTORS — Release typography */
+#release-duo-title{
+  font-family:inherit !important;
+  font-size:clamp(32px,3.05vw,52px) !important;
+  line-height:.94 !important;
+  letter-spacing:-.025em !important;
+  margin:0 0 10px !important;
+  max-width:100% !important;
+  text-wrap:balance;
+}
+.release-main-copy{
+  min-width:0 !important;
+  align-self:center !important;
+}
+.release-main-copy p{
+  font-size:clamp(15px,1.02vw,17px) !important;
+  line-height:1.45 !important;
+}
+.release-main-copy .release-version,
+#release-duo-version{
+  font-size:clamp(21px,1.65vw,29px) !important;
+  line-height:1 !important;
+  letter-spacing:.20em !important;
+}
+
+/* REAL modal content — compact, same visual language */
+.release-modal-content{
+  width:min(960px,calc(100vw - 64px)) !important;
+  height:auto !important;
+  min-height:0 !important;
+  max-height:calc(100vh - 120px) !important;
+  overflow:hidden !important;
+  font-family:inherit !important;
+}
+.release-modal-content .release-modal-body,
+.release-modal-content .modal-body{
+  height:auto !important;
+  min-height:0 !important;
+  max-height:calc(100vh - 190px) !important;
+  overflow-y:auto !important;
+  padding:28px 38px 30px !important;
+}
+.release-modal-content h1,
+.release-modal-content h2{
+  font-family:inherit !important;
+  font-size:clamp(27px,2.15vw,38px) !important;
+  line-height:1.08 !important;
+  letter-spacing:-.015em !important;
+  margin:0 0 16px !important;
+}
+.release-modal-content h3,
+.release-modal-content .eyebrow{
+  font-family:inherit !important;
+  font-size:clamp(12px,.92vw,15px) !important;
+  line-height:1.2 !important;
+  letter-spacing:.15em !important;
+  margin:0 0 12px !important;
+}
+.release-modal-content p{
+  font-family:inherit !important;
+  font-size:clamp(14px,.98vw,16px) !important;
+  line-height:1.52 !important;
+  margin:0 0 13px !important;
+}
+.release-modal-content blockquote{
+  font-family:inherit !important;
+  font-size:clamp(18px,1.45vw,24px) !important;
+  line-height:1.28 !important;
+  margin:18px 0 0 !important;
+  padding:16px 20px !important;
+}
+
+/* On normal desktop heights: story fits without a visible inner scrollbar. */
+@media (min-width:901px) and (min-height:720px){
+  .release-modal-content .release-modal-body,
+  .release-modal-content .modal-body{
+    overflow-y:hidden !important;
+  }
+}
+@media (max-width:900px){
+  #release-duo-title{
+    font-size:clamp(28px,8vw,43px) !important;
+  }
+  .release-modal-content{
+    width:calc(100vw - 24px) !important;
+    max-height:calc(100vh - 36px) !important;
+  }
+  .release-modal-content .release-modal-body,
+  .release-modal-content .modal-body{
+    max-height:calc(100vh - 105px) !important;
+    overflow-y:auto !important;
+    padding:20px 18px 24px !important;
+  }
+}
+</style>
+
 </head><body class="register-site">
 <a class="skip-link" href="#main-content">Direkt zum Hauptinhalt</a>
 <header class="reg-header"><div class="reg-brand"><img src="assets/blackmagic-smeety-logo.png" alt="Blackmagic Smeety Logo"><span>BLACKMAGIC <b>SMEETY</b></span></div><div class="reg-header-tools">
@@ -94,32 +290,40 @@
 <section class="reg-panel release-panel" id="panel-release">
   <div class="release-back-row">
     <button class="release-back" type="button" data-release-back>← ZURÜCK</button>
-    <span class="release-status">NEW RELEASE · 14.09.2026</span>
+    <span class="release-status">NEW RELEASE · 29.09.2026 · 2 VERSIONEN</span>
   </div>
-  <div class="release-stage-card">
-    <div class="release-cover-wrap">
+  <div class="release-stage-card" id="release-duo">
+    <div class="release-cover-wrap release-duo-showroom" aria-label="Release-Drehteller">
       <div class="release-glow" aria-hidden="true"></div>
-      <img class="release-cover" src="assets/releases/look-at-you-2026.png" onerror="this.onerror=null;this.src='assets/blackmagic-smeety-logo.png';this.classList.add('release-cover-fallback')" alt="Look at You (2026 Version) – Cover">
+      <button class="release-duo-nav release-duo-prev" type="button" aria-label="Vorherige Version">‹</button>
+      <div class="release-duo-track">
+        <button class="release-duo-card is-front" type="button" data-release-version="en" aria-label="Englische Version">
+          <img src="assets/releases/if-it-doesnt-come-from-the-heart-2026.png" alt="If It Doesn't Come from the Heart (2026 Version) – Cover">
+          <span>🇬🇧 ENGLISH</span>
+        </button>
+        <button class="release-duo-card" type="button" data-release-version="de" aria-label="Deutsche Version">
+          <img src="assets/releases/wenn-es-nicht-von-herzen-kommt-2026.png" alt="Wenn es nicht von Herzen kommt – Lass es gehen (2026 Version) – Cover">
+          <span>🇩🇪 DEUTSCH</span>
+        </button>
+      </div>
+      <button class="release-duo-nav release-duo-next" type="button" aria-label="Nächste Version">›</button>
+      <div class="release-duo-hint">ZIEHEN · KLICKEN · DREHEN</div>
     </div>
     <div class="release-main-copy">
       <p class="eyebrow release-eyebrow">NEW RELEASE</p>
-      <h2>LOOK AT YOU</h2>
+      <h2 id="release-duo-title">IF IT DOESN'T COME FROM THE HEART</h2>
       <p class="release-version">2026 VERSION</p>
-      <div class="release-meta"><span>BLACKMAGIC SMEETY</span><i></i><span>SOFT ROCK · POP ROCK</span><i></i><span>14.09.2026</span></div>
-      <div class="release-award" aria-label="Lava Byte Radio 2. Platz">🥈 LBR · 2. PLATZ</div>
-      <p class="release-teaser">Manche Songs entstehen neu. Andere warten jahrelang darauf, noch einmal erzählt zu werden.</p>
-      <button class="release-play" type="button" data-player-open data-video-id="rsJJvnfMWNA" data-player-title="Look at You (2026 Version)" data-player-cover="assets/releases/look-at-you-2026.png">▶ SONG ANHÖREN</button>
-      <div class="release-actions" aria-label="Weitere Inhalte zu Look at You">
+      <div class="release-meta"><span>BLACKMAGIC SMEETY</span><i></i><span>SOFT ROCK</span><i></i><span>29.09.2026</span><i></i><span id="release-duo-language">ENGLISH</span></div>
+      <p class="release-teaser" id="release-duo-teaser"></p>
+      <button class="release-play" id="release-duo-play" type="button" data-player-open data-video-id="p1Ko7NdUlYc" data-player-title="If It Doesn't Come from the Heart (2026 Version)" data-player-cover="assets/releases/if-it-doesnt-come-from-the-heart-2026.png">▶ SONG ANHÖREN</button>
+      <div class="release-actions" aria-label="Weitere Inhalte zum aktuellen Release">
         <button type="button" data-release-modal="story"><b>STORY</b><small>Die Geschichte</small></button>
-        <button type="button" data-release-modal="translation"><b>DEUTSCH</b><small>Übersetzung</small></button>
-        <button type="button" data-release-modal="lyrics"><b>LYRICS</b><small>Songtext</small></button>
+        <a id="release-duo-details" href="songs/if-it-doesnt-come-from-the-heart-2026/"><b>SONG DETAILS</b><small>Release-Seite</small></a>
         <button type="button" data-release-modal="streaming"><b>STREAMING</b><small>Plattformen</small></button>
       </div>
     </div>
   </div>
-  <div class="release-signature">
-    <span>Songwriter</span><strong>Markus Smeets · Blackmagic Smeety</strong>
-  </div>
+  <div class="release-signature"><span>Songwriter</span><strong>Markus Smeets · Blackmagic Smeety</strong></div>
 </section>
 <section class="reg-panel music-panel" id="panel-music">
   <div class="music-library-shell">
@@ -129,12 +333,24 @@
     </div>
     <div class="music-toolbar">
       <label class="music-search" aria-label="Songs durchsuchen"><span>⌕</span><input id="music-search-input" type="search" placeholder="Song suchen …" autocomplete="off"></label>
-      <div class="music-toolbar-actions"><div class="music-count"><b id="music-count-current">8</b> SONGS</div><button class="discography-open" type="button" data-discography-open>GESAMTE DISKOGRAFIE →</button></div>
+      <div class="music-toolbar-actions"><div class="music-count"><b id="music-count-current">9</b> SONGS</div><button class="discography-open" type="button" data-discography-open>GESAMTE DISKOGRAFIE →</button></div>
     </div>
     <div class="music-carousel-showroom" id="music-carousel-showroom">
       <div class="music-carousel-stage" aria-label="Song-Karussell">
         <button class="music-carousel-nav music-carousel-prev" type="button" aria-label="Vorheriger Song">‹</button>
         <div class="music-carousel-track" id="music-carousel-track">
+          <article class="music-carousel-card" data-title="if it doesn't come from the heart 2026 version soft rock 2026" aria-label="If It Doesn't Come from the Heart (2026 Version)">
+            <img src="assets/releases/if-it-doesnt-come-from-the-heart-2026.png" alt="If It Doesn't Come from the Heart (2026 Version)">
+            <div class="music-card-copy">
+              <span>SOFT ROCK · 2026</span>
+              <h3>If It Doesn't Come from the Heart (2026 Version)</h3>
+              <p>Ehrliche Gefühle · neu interpretiert</p>
+              <div class="music-card-actions">
+                <button class="music-play-btn" type="button" data-player-open data-video-id="p1Ko7NdUlYc" data-player-title="If It Doesn't Come from the Heart (2026 Version)" data-player-cover="assets/releases/if-it-doesnt-come-from-the-heart-2026.png">▶ SONG ANHÖREN</button>
+                <a class="music-details-link" href="songs/if-it-doesnt-come-from-the-heart-2026/">SONG DETAILS →</a>
+              </div>
+            </div>
+          </article>
           <article class="music-carousel-card" data-title="look at you 2026 version soft rock pop rock 2026" aria-label="Look at You (2026 Version)">
             <img src="assets/releases/look-at-you-2026.png" alt="Look at You (2026 Version)">
             <div class="music-card-copy">
@@ -247,7 +463,8 @@
     <div class="discography-head"><div><p class="eyebrow">VERÖFFENTLICHUNGEN</p><h2>Diskografie</h2></div><p>Veröffentlichte Musik von Blackmagic Smeety – unabhängig davon, auf welchen Plattformen ein Release erschienen ist.</p></div>
     <div class="discography-scroll">
       <section class="discography-year"><h3>2026</h3><div class="discography-list">
-        <article class="discography-item current"><time>14.09.2026</time><div><b>Look at You (2026 Version)</b><small>SINGLE · SOFT ROCK / POP ROCK</small></div><a class="discography-details-link" href="songs/look-at-you-2026/">DETAILS →</a></article>
+        <article class="discography-item current"><time>29.09.2026</time><div><b>If It Doesn't Come from the Heart (2026 Version)</b><small>SINGLE · SOFT ROCK</small></div><a class="discography-details-link" href="songs/if-it-doesnt-come-from-the-heart-2026/">DETAILS →</a></article>
+        <article class="discography-item"><time>14.09.2026</time><div><b>Look at You (2026 Version)</b><small>SINGLE · SOFT ROCK / POP ROCK</small></div><a class="discography-details-link" href="songs/look-at-you-2026/">DETAILS →</a></article>
         <article class="discography-item"><time>30.08.2026</time><div><b>Respect for Life / Respekt vor dem Leben</b><small>BILINGUAL SONG PROJECT</small></div><button type="button" data-music-project="respect-life">DETAILS →</button></article>
         <article class="discography-item"><time>13.08.2026</time><div><b>What Else Is Waiting, Inside of Me</b><small>SINGLE · SOFTROCK / BALLAD</small></div><a href="songs/what-else-is-waiting-inside-of-me/">DETAILS →</a></article>
         <article class="discography-item"><time>10.07.2026</time><div><b>Me, Myself and I</b><small>SINGLE · SOUL ROCK</small></div><a href="songs/me-myself-and-i/index.html">DETAILS →</a></article>
