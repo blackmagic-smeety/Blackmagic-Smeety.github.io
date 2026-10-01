@@ -1086,3 +1086,50 @@ body.accessibility-page.accessibility-one-screen{height:100dvh!important;min-hei
 @media(max-width:760px){body.accessibility-page.accessibility-one-screen{padding:12px 12px!important}.accessibility-one-screen .accessibility-brand img{width:38px;height:38px}.accessibility-one-screen .accessibility-brand span{font-size:10px}.accessibility-one-screen main{justify-content:center}.accessibility-one-screen h1{font-size:clamp(25px,7vw,34px)}.accessibility-one-screen .accessibility-lead{font-size:14px}.accessibility-one-screen .accessibility-intro{font-size:11px;max-width:560px}.accessibility-cards{grid-template-columns:repeat(2,1fr);gap:8px;margin:12px auto 10px}.accessibility-card{padding:10px 8px 9px;border-radius:13px}.accessibility-card-icon{width:27px;height:27px;font-size:13px;margin-bottom:5px}.accessibility-card strong{font-size:11px}.accessibility-card>span:last-child{font-size:8px}.accessibility-note{font-size:7.5px!important;margin-top:6px!important}.accessibility-one-screen .accessibility-back{font-size:9px;padding:8px 12px}.accessibility-topic-dialog{padding:27px 20px 22px;border-radius:17px}}
 @media(max-height:680px){.accessibility-one-screen .accessibility-intro{display:none}.accessibility-cards{margin:9px auto 8px}.accessibility-card{padding-top:9px;padding-bottom:8px}.accessibility-card-icon{margin-bottom:4px}.accessibility-note{display:none}}
 @media(prefers-reduced-motion:reduce){.accessibility-card{transition:none!important}.accessibility-topic-backdrop{backdrop-filter:none}}
+
+/* BUILD 9.7.3 · Content Update 1 — readability, 5th award, Syvaron prep */
+/* Preserve the approved blue→violet→magenta button language, but raise text contrast. */
+.release-actions button b{color:#fff!important;text-shadow:0 1px 2px rgba(0,0,0,.5)!important}
+.release-actions button small{color:#f3f7ff!important;opacity:.96!important;text-shadow:0 1px 2px rgba(0,0,0,.48)!important}
+.release-actions button{font-weight:800!important}
+
+/* Projects & Specials: third compact teaser fits the existing one-screen stage. */
+@media (min-width:951px){
+  #panel-projects .project-side-stack{grid-template-rows:repeat(3,minmax(0,1fr));gap:11px}
+  #panel-projects .project-mini-card{min-height:0!important;height:auto!important;grid-template-columns:96px 1fr}
+  #panel-projects .project-mini-card>img,#panel-projects .dual-cover{width:96px!important;min-height:0!important;height:100%!important}
+  #panel-projects .project-mini-body{padding:11px 13px}
+  #panel-projects .project-mini-body h3{font-size:17px;margin:4px 0 3px}
+  #panel-projects .project-mini-body p{font-size:10px;margin:0 0 7px}
+  #panel-projects .project-mini-body .project-open{padding:7px 10px;font-size:8px}
+  #panel-projects .project-kicker{font-size:8px;letter-spacing:1.1px}
+}
+.syvaron-project-teaser>img{object-fit:contain!important;background:#020913;padding:9px}
+.syvaron-coming-soon{display:inline-flex;align-self:flex-start;padding:6px 10px;border:1px solid #4ba8ff;border-radius:999px;background:linear-gradient(110deg,#3278ff,#7b63ff 52%,#e84fc1);color:#fff;font-size:8px;font-weight:900;letter-spacing:1px;box-shadow:0 5px 16px rgba(88,92,255,.16)}
+
+/* BUILD 9.7.3 FIX1 · Some Dreams LBR badge */
+#panel-music .music-card-copy .release-award,#panel-music .music-carousel-info .release-award{margin:8px 0 10px;color:#ffe17a;border-color:#a88b35;background:linear-gradient(135deg,#1a1609,#07111d);box-shadow:0 0 18px #ffd35b22}
+
+
+/* BUILD 9.7.3 FIX 3 — Some Dreams award: exact supplied artwork + HTML overlay.
+   Raster artwork remains the visible card background; no SVG/external-image indirection. */
+.some-dreams-award-visual{position:relative;width:100%;height:100%;overflow:hidden;background:#05080d;color:#fff;font-family:Arial,sans-serif}
+.some-dreams-award-visual>img{position:absolute!important;inset:0;width:100%!important;height:100%!important;object-fit:cover!important;display:block!important}
+.some-dreams-award-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(2,6,11,.78) 0%,rgba(2,6,11,.44) 45%,rgba(2,6,11,.12) 72%),linear-gradient(0deg,rgba(2,6,11,.72),transparent 45%)}
+.some-dreams-award-thanks{position:absolute;left:7%;top:5.5%;font:italic 700 20px/1.05 Georgia,serif;color:#f1d39a;text-shadow:0 2px 7px #000}.some-dreams-award-thanks span{color:#fff}
+.some-dreams-award-copy{position:absolute;left:7%;top:15%;width:58%;display:flex;flex-direction:column;align-items:flex-start;text-shadow:0 2px 8px #000}
+.some-dreams-award-copy small{font-size:8px;margin-bottom:4px}.some-dreams-award-copy strong{font-size:16px;line-height:1.02;letter-spacing:.01em}.some-dreams-award-copy b{font-size:9px;margin-top:7px}.some-dreams-award-copy em{font-style:normal;color:#f3c65c;font-size:15px}.some-dreams-award-copy span{font-size:8px;margin-top:2px;color:#f4e6c8}
+.some-dreams-award-medal{position:absolute;right:5%;top:8%;width:28%;aspect-ratio:1;border:3px solid #d5a43b;border-radius:50%;background:radial-gradient(circle at 40% 32%,#5c4212,#151007 65%,#050607);box-shadow:0 6px 18px #000c,0 0 0 2px #5c3f10 inset;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#f2c95f;text-shadow:0 2px 5px #000}
+.some-dreams-award-medal small{font-size:7px;letter-spacing:.15em}.some-dreams-award-medal strong{font:900 44px/.78 Georgia,serif}.some-dreams-award-medal sup{font:900 8px Arial,sans-serif;vertical-align:top}.some-dreams-award-medal span{font-size:9px;font-weight:900;border-top:1px solid #d5a43b;margin-top:5px;padding-top:3px;letter-spacing:.08em}
+.some-dreams-award-sign{position:absolute;left:7%;bottom:5%;font:italic 700 15px Georgia,serif;color:#f5e5c0;text-shadow:0 2px 7px #000}
+
+/* SEO 3: visible artist identity signal */
+/* SEO 3.1: hero identity line — integrated visual treatment + semantic internal links */
+.artist-identity{margin:.5rem 0 .9rem;display:flex;align-items:center;flex-wrap:wrap;gap:.18rem .32rem;font-size:clamp(.76rem,1.05vw,.92rem);line-height:1.45;letter-spacing:.045em;color:#aebdca;opacity:1}
+.artist-identity-link{position:relative;color:#eaf8ff;text-decoration:none;font-weight:800;letter-spacing:.055em;transition:color .22s ease,text-shadow .22s ease}
+.artist-identity-link.artist-link{color:#56dcff}.artist-identity-link.person-link{color:#f3f8fc}
+.artist-identity-link::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:1px;background:linear-gradient(90deg,transparent,#43d7ff,transparent);transform:scaleX(0);transform-origin:center;transition:transform .22s ease}
+.artist-identity-link:hover,.artist-identity-link:focus-visible{color:#7ee7ff;text-shadow:0 0 14px rgba(57,205,255,.38);outline:none}
+.artist-identity-link:hover::after,.artist-identity-link:focus-visible::after{transform:scaleX(1)}
+.artist-identity-sep{color:#3b718e;font-weight:700}.artist-identity-copy{color:#9eafbd}
+@media(max-width:600px){.artist-identity{margin:.45rem 0 .78rem;font-size:.78rem;gap:.12rem .25rem}}

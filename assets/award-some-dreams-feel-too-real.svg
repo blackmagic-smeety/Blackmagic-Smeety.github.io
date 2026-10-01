@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1148" height="1371" viewBox="0 0 1148 1371" role="img" aria-labelledby="t d">
+<title id="t">Some Dreams Feel Too Real – 5th Place</title>
+<desc id="d">Blackmagic Smeety – Some Dreams Feel Too Real, fifth place Lava Byte Radio award visual using the original song artwork.</desc>
+<defs>
+ <linearGradient id="shade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#02060b" stop-opacity=".18"/><stop offset=".42" stop-color="#02060b" stop-opacity=".05"/><stop offset=".72" stop-color="#02060b" stop-opacity=".32"/><stop offset="1" stop-color="#02060b" stop-opacity=".92"/></linearGradient>
+ <linearGradient id="gold" x2="1" y2="1"><stop stop-color="#fff1a8"/><stop offset=".25" stop-color="#dca83a"/><stop offset=".55" stop-color="#8b5a12"/><stop offset=".78" stop-color="#f6cf63"/><stop offset="1" stop-color="#9b6618"/></linearGradient>
+ <radialGradient id="medal" cx="45%" cy="35%"><stop stop-color="#46320d"/><stop offset=".65" stop-color="#171108"/><stop offset="1" stop-color="#060708"/></radialGradient>
+ <filter id="shadow"><feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#000" flood-opacity=".78"/></filter>
+</defs>
+<!-- exact user-provided Some Dreams artwork -->
+<image href="award-some-dreams-source.png" x="0" y="0" width="1148" height="1371" preserveAspectRatio="xMidYMid slice"/>
+<rect width="1148" height="1371" fill="url(#shade)"/>
+<!-- award medal, deliberately placed away from the title artwork -->
+<g transform="translate(790 115)" filter="url(#shadow)">
+ <circle cx="145" cy="145" r="132" fill="#07090b" stroke="url(#gold)" stroke-width="14"/>
+ <circle cx="145" cy="145" r="111" fill="url(#medal)" stroke="#f1ce69" stroke-width="4"/>
+ <path d="M70 60 Q145 18 220 60" fill="none" stroke="#d9ad49" stroke-width="5"/>
+ <text x="145" y="67" text-anchor="middle" fill="#f3d67e" font-family="Arial,sans-serif" font-size="20" font-weight="900" letter-spacing="2">LBR</text>
+ <text x="145" y="185" text-anchor="middle" fill="url(#gold)" font-family="Georgia,serif" font-size="122" font-weight="900">5</text>
+ <text x="205" y="119" fill="#f7db83" font-family="Arial,sans-serif" font-size="29" font-weight="900">TH</text>
+ <path d="M25 205 Q145 230 265 205 L250 263 Q145 284 40 263Z" fill="#12100b" stroke="url(#gold)" stroke-width="4"/>
+ <text x="145" y="250" text-anchor="middle" fill="#f7d46f" font-family="Arial,sans-serif" font-size="28" font-weight="900">PLACE</text>
+</g>
+<!-- same thank-you / LBR language as the existing award family, without inventing contest counts -->
+<g filter="url(#shadow)">
+ <text x="72" y="105" fill="#f0d69a" font-family="Georgia,serif" font-size="52" font-style="italic">Thank You!</text>
+ <text x="72" y="154" fill="#f5f7fa" font-family="Arial,sans-serif" font-size="22">I’m truly happy to share that</text>
+ <text x="72" y="201" fill="#ffffff" font-family="Arial,sans-serif" font-size="35" font-weight="900">SOME DREAMS FEEL TOO REAL</text>
+ <text x="72" y="241" fill="#f3d477" font-family="Arial,sans-serif" font-size="25" font-weight="800">reached 5TH PLACE at LAVA BYTE RADIO</text>
+</g>
+<g filter="url(#shadow)">
+ <text x="72" y="1250" fill="#f4e9d1" font-family="Arial,sans-serif" font-size="21">Thank you to Lava Byte Radio and everyone who listened and supported the song.</text>
+ <text x="72" y="1305" fill="#fff1c7" font-family="Georgia,serif" font-size="38" font-style="italic">Blackmagic Smeety</text>
+ <text x="72" y="1340" fill="#c7b98f" font-family="Arial,sans-serif" font-size="13" letter-spacing="5">MUSIC · STORIES · REAL EMOTIONS</text>
+</g>
+</svg>

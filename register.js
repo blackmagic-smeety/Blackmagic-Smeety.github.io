@@ -7,7 +7,7 @@ const BMS_TRANSLATIONS = {
   "KLICK AUF EIN REGISTER": "CLICK A TAB",
   "MUSIK": "MUSIC",
   "ERFOLGE": "AWARDS",
-  "Vier Songs. Vier Platzierungen. Dreh durch die bisherigen Radio-Erfolge von Blackmagic Smeety und hör dir den jeweiligen Song direkt an.": "Four songs. Four placements. Rotate through Blackmagic Smeety’s radio achievements and listen to each song directly.",
+  "Fünf Songs. Fünf Platzierungen. Dreh durch die bisherigen Radio-Erfolge von Blackmagic Smeety und hör dir den jeweiligen Song direkt an.": "Five songs. Five placements. Rotate through Blackmagic Smeety’s radio achievements and listen to each song directly.",
   "Vorherige Auszeichnung": "Previous award",
   "Nächste Auszeichnung": "Next award",
   "RELEASE": "RELEASE",
@@ -25,6 +25,8 @@ const BMS_TRANSLATIONS = {
   "GÄSTEBUCH": "GUESTBOOK",
   "OFFIZIELLE HOMEPAGE": "OFFICIAL WEBSITE",
   "Songwriter mit Herz & Beat": "Songwriter with Heart & Beat",
+  "Blackmagic Smeety – das Musikprojekt von Songwriter Markus Smeets": "Blackmagic Smeety – the music project of songwriter Markus Smeets",
+  "Musikprojekt von Songwriter": "music project by songwriter",
   "Songs mit Geschichte. Persönlich geschrieben.": "Songs with a story. Personally written.",
   "Digital zum Leben erweckt.": "Digitally brought to life.",
   "MEINE MUSIK →": "MY MUSIC →",
@@ -108,7 +110,8 @@ const BMS_TRANSLATIONS = {
   "ALLE": "ALL",
   "ALBEN / EPs": "ALBUMS / EPs",
   "SINGLES": "SINGLES",
-  "AUF SPOTIFY ÖFFNEN ↗": "OPEN ON SPOTIFY ↗"
+  "AUF SPOTIFY ÖFFNEN ↗": "OPEN ON SPOTIFY ↗",
+  "🏆 LBR · 5. PLATZ": "🏆 LBR · 5TH PLACE"
 };
 let bmsLanguage = localStorage.getItem('bms-language') === 'en' ? 'en' : 'de';
 const bmsOriginalText = new WeakMap();
@@ -541,16 +544,38 @@ const initial=location.hash.slice(1);if(tabs.some(t=>t.dataset.panel===initial))
   const open=(btn)=>{
     const video=btn.dataset.videoId||'';
     const playlist=btn.dataset.playlistId||'';
+    const origin=encodeURIComponent(location.origin);
     const src=video
-      ? `https://www.youtube-nocookie.com/embed/${encodeURIComponent(video)}?rel=0&autoplay=1`
-      : `https://www.youtube-nocookie.com/embed/videoseries?list=${encodeURIComponent(playlist)}&rel=0&autoplay=1`;
+      ? `https://www.youtube-nocookie.com/embed/${encodeURIComponent(video)}?rel=0&autoplay=1&enablejsapi=1&origin=${origin}`
+      : `https://www.youtube-nocookie.com/embed/videoseries?list=${encodeURIComponent(playlist)}&rel=0&autoplay=1&enablejsapi=1&origin=${origin}`;
     frame.src=src;
     if(title)title.textContent=btn.dataset.playerTitle||'Blackmagic Smeety';
     if(cover&&btn.dataset.playerCover)cover.src=btn.dataset.playerCover;
     modal.classList.add('is-open');modal.setAttribute('aria-hidden','false');document.body.classList.add('player-open');
   };
-  const close=()=>{modal.classList.remove('is-open');modal.setAttribute('aria-hidden','true');document.body.classList.remove('player-open');frame.src='';};
-  document.querySelectorAll('[data-player-open]').forEach(btn=>btn.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(btn);}));
+  let wakeLock=null;
+  const requestWakeLock=async()=>{
+    if(!('wakeLock' in navigator)||document.visibilityState!=='visible'||wakeLock)return;
+    try{wakeLock=await navigator.wakeLock.request('screen');wakeLock.addEventListener('release',()=>{wakeLock=null;});}catch(_){wakeLock=null;}
+  };
+  const releaseWakeLock=async()=>{if(!wakeLock)return;try{await wakeLock.release();}catch(_){}wakeLock=null;};
+  let ytPlayer=null;
+  const bindPlayerState=()=>{
+    if(!window.YT||!YT.Player||!frame.src)return;
+    try{ytPlayer?.destroy?.();}catch(_){}
+    try{ytPlayer=new YT.Player(frame,{events:{onStateChange:e=>{
+      if(e.data===YT.PlayerState.PLAYING)requestWakeLock();
+      else if(e.data===YT.PlayerState.PAUSED||e.data===YT.PlayerState.ENDED||e.data===YT.PlayerState.CUED)releaseWakeLock();
+    }}});}catch(_){}
+  };
+  const ensureYouTubeAPI=()=>{
+    if(window.YT&&YT.Player){setTimeout(bindPlayerState,250);return;}
+    if(!document.getElementById('bms-youtube-iframe-api')){const sc=document.createElement('script');sc.id='bms-youtube-iframe-api';sc.src='https://www.youtube.com/iframe_api';document.head.appendChild(sc);}
+    const prev=window.onYouTubeIframeAPIReady;window.onYouTubeIframeAPIReady=()=>{try{prev?.();}catch(_){}bindPlayerState();};
+  };
+  const close=()=>{releaseWakeLock();try{ytPlayer?.destroy?.();}catch(_){}ytPlayer=null;modal.classList.remove('is-open');modal.setAttribute('aria-hidden','true');document.body.classList.remove('player-open');frame.src='';};
+  document.querySelectorAll('[data-player-open]').forEach(btn=>btn.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(btn);ensureYouTubeAPI();}));
+  document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&ytPlayer&&window.YT){try{if(ytPlayer.getPlayerState()===YT.PlayerState.PLAYING)requestWakeLock();}catch(_){}}else if(document.visibilityState!=='visible')releaseWakeLock();});
   document.querySelectorAll('[data-player-close]').forEach(el=>el.addEventListener('click',close));
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('is-open'))close();});
 })();
