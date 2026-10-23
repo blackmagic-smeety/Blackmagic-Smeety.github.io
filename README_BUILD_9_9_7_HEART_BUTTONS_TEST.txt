@@ -1,0 +1,1 @@
+BUILD 9.9.7 TEST based on 9.9.6. Adds DEUTSCH and LYRICS buttons to both Heart pages. IMPORTANT: Original full lyrics not available in supplied source; dialogs clearly disclose missing verified text. Not a final/master release. All other files retained unchanged.

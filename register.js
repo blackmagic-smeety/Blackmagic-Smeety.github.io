@@ -4,6 +4,11 @@
 // Complete interface translation; published song titles and lyrics stay original.
 // ==========================================================
 const BMS_TRANSLATIONS = {
+  "Song suchen …": "Search songs …",
+  "Ein energiegeladener Halloween-Rock-Song mit Augenzwinkern.": "An energetic Halloween rock song with a playful twist.",
+  "Über Gefühle und Geschichten, die anderen verborgen bleiben.": "About feelings and stories hidden from others.",
+  "Songs durchsuchen": "Search songs",
+
   "KLICK AUF EIN REGISTER": "CLICK A TAB",
   "MUSIK": "MUSIC",
   "ERFOLGE": "AWARDS",
@@ -154,6 +159,7 @@ function bmsTranslateInterface(lang){
     const o=bmsOriginalAttrs.get(el);
     const attrMap={
       'Songs durchsuchen …':'Search songs …',
+      'Song suchen …':'Search songs …',
       'Name':'Name',
       'E-Mail-Adresse':'Email address',
       'Schreib mir ein paar Zeilen …':'Write me a few words …',
@@ -548,29 +554,10 @@ const initial=location.hash.slice(1);if(tabs.some(t=>t.dataset.panel===initial))
     if(cover&&btn.dataset.playerCover)cover.src=btn.dataset.playerCover;
     modal.classList.add('is-open');modal.setAttribute('aria-hidden','false');document.body.classList.add('player-open');
   };
-  let wakeLock=null;
-  const requestWakeLock=async()=>{
-    if(!('wakeLock' in navigator)||document.visibilityState!=='visible'||wakeLock)return;
-    try{wakeLock=await navigator.wakeLock.request('screen');wakeLock.addEventListener('release',()=>{wakeLock=null;});}catch(_){wakeLock=null;}
-  };
-  const releaseWakeLock=async()=>{if(!wakeLock)return;try{await wakeLock.release();}catch(_){}wakeLock=null;};
-  let ytPlayer=null;
-  const bindPlayerState=()=>{
-    if(!window.YT||!YT.Player||!frame.src)return;
-    try{ytPlayer?.destroy?.();}catch(_){}
-    try{ytPlayer=new YT.Player(frame,{events:{onStateChange:e=>{
-      if(e.data===YT.PlayerState.PLAYING)requestWakeLock();
-      else if(e.data===YT.PlayerState.PAUSED||e.data===YT.PlayerState.ENDED||e.data===YT.PlayerState.CUED)releaseWakeLock();
-    }}});}catch(_){}
-  };
-  const ensureYouTubeAPI=()=>{
-    if(window.YT&&YT.Player){setTimeout(bindPlayerState,250);return;}
-    if(!document.getElementById('bms-youtube-iframe-api')){const sc=document.createElement('script');sc.id='bms-youtube-iframe-api';sc.src='https://www.youtube.com/iframe_api';document.head.appendChild(sc);}
-    const prev=window.onYouTubeIframeAPIReady;window.onYouTubeIframeAPIReady=()=>{try{prev?.();}catch(_){}bindPlayerState();};
-  };
-  const close=()=>{releaseWakeLock();try{ytPlayer?.destroy?.();}catch(_){}ytPlayer=null;modal.classList.remove('is-open');modal.setAttribute('aria-hidden','true');document.body.classList.remove('player-open');frame.src='';};
-  document.querySelectorAll('[data-player-open]').forEach(btn=>btn.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(btn);ensureYouTubeAPI();}));
-  document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&ytPlayer&&window.YT){try{if(ytPlayer.getPlayerState()===YT.PlayerState.PLAYING)requestWakeLock();}catch(_){}}else if(document.visibilityState!=='visible')releaseWakeLock();});
+  // TEST 01: Native iframe playback only. No YouTube IFrame API or Wake Lock.
+  // Preserve the existing modal, buttons, song metadata and close behavior.
+  const close=()=>{modal.classList.remove('is-open');modal.setAttribute('aria-hidden','true');document.body.classList.remove('player-open');frame.src='';};
+  document.querySelectorAll('[data-player-open]').forEach(btn=>btn.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(btn);}));
   document.querySelectorAll('[data-player-close]').forEach(el=>el.addEventListener('click',close));
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('is-open'))close();});
 })();
@@ -760,8 +747,12 @@ const initial=location.hash.slice(1);if(tabs.some(t=>t.dataset.panel===initial))
   const language=document.getElementById('release-duo-language');
   const play=document.getElementById('release-duo-play');
   const details=document.getElementById('release-duo-details');
+  const date=document.getElementById("release-duo-date"),genre=document.getElementById("release-duo-genre"),status=document.querySelector(".release-status");
   let active=0,startX=null,dragged=false;
   const releases={
+    dead:{title:'THE DEAD ARE DANCING BLACKMAGIC',label:{de:'HALLOWEEN ROCK',en:'HALLOWEEN ROCK'},video:'XwZfMur9el0',cover:'songs/the-dead-are-dancing/cover.jpg',details:'songs/the-dead-are-dancing/',date:'17.10.2026',genre:'HALLOWEEN ROCK',teaser:{de:'Ein energiegeladener Halloween-Rock-Song mit Augenzwinkern.',en:'An energetic Halloween rock anthem with a playful twist.'}},
+    never:{title:'WHAT WE NEVER SEE',label:{de:'EMOTIONAL POP',en:'EMOTIONAL POP'},video:'42e9VnnW1_o',cover:'songs/what-we-never-see/cover.jpg',details:'songs/what-we-never-see/',date:'17.10.2026',genre:'EMOTIONAL POP',teaser:{de:'Über Gefühle und Geschichten, die anderen verborgen bleiben.',en:'About feelings and stories that remain hidden from others.'}},
+    fly:{title:"LET'S FLY",label:{de:'ROMANTIC POP',en:'ROMANTIC POP'},video:'Iacirpfx4Qk',cover:'songs/lets-fly/cover.png',details:'songs/lets-fly/',date:'17.10.2026',genre:'ROMANTIC POP',teaser:{de:'Ein romantischer Song über Nähe, Vertrauen und gemeinsame Träume.',en:'A romantic song about closeness, trust and shared dreams.'}},
     en:{
       title:"IF IT DOESN'T COME FROM THE HEART",label:{de:'ENGLISCH',en:'ENGLISH'},video:'p1Ko7NdUlYc',cover:'assets/releases/if-it-doesnt-come-from-the-heart-2026.png',details:'songs/if-it-doesnt-come-from-the-heart-2026/',
       teaser:{de:"If It Doesn't Come from the Heart gehört zu meinen früheren Songs. Die Aussage dahinter ist für mich heute genauso wichtig wie damals – und dieser Song ist für all jene, die es genauso sehen und fühlen.",en:"If It Doesn't Come from the Heart is one of my earlier songs. Its message is just as important to me today as it was back then – and this song is for everyone who sees and feels it the same way."}
@@ -776,7 +767,10 @@ const initial=location.hash.slice(1);if(tabs.some(t=>t.dataset.panel===initial))
     cards.forEach((c,i)=>{c.classList.toggle('is-front',i===active);c.setAttribute('aria-current',i===active?'true':'false')});
     const r=current(), lang=(window.bmsLanguage||bmsLanguage||'de');
     title.textContent=r.title; language.textContent=r.label[lang]||r.label.de; teaser.textContent=r.teaser[lang]||r.teaser.de;
-    play.dataset.videoId=r.video;play.dataset.playerTitle=r.title+' (2026 Version)';play.dataset.playerCover=r.cover;
+    if(date)date.textContent=r.date||'29.09.2026';if(genre)genre.textContent=r.genre||'SOFT ROCK';
+    const version=document.querySelector('.release-version');if(version)version.textContent=r.date?'SINGLE · 2026':'2026 VERSION';
+    if(status)status.textContent=lang==='en'?'NEW RELEASE · 17 OCT 2026 · 3 SONGS':'NEW RELEASE · 17.10.2026 · 3 SONGS';
+    play.dataset.videoId=r.video;play.dataset.playerTitle=r.title+(r.date?'':' (2026 Version)');play.dataset.playerCover=r.cover;
     details.href=r.details;
   }
   function turn(dir){active=(active+dir+cards.length)%cards.length;render()}
@@ -794,5 +788,17 @@ const initial=location.hash.slice(1);if(tabs.some(t=>t.dataset.panel===initial))
   const baseTranslate=bmsTranslateInterface;
   bmsTranslateInterface=function(lang){baseTranslate(lang);render()};
   window.bmsReleaseDuo={get active(){return cards[active].dataset.releaseVersion},render};
+  // For the new releases, open their existing, fully translated song-detail sections.
+  root.querySelectorAll('[data-release-modal]').forEach(button=>button.addEventListener('click',event=>{
+    const r=current();if(!r.date)return;
+    event.stopImmediatePropagation();
+    const modal=document.getElementById('release-modal'),content=document.getElementById('release-modal-content');
+    const lang=window.bmsLanguage||'de';
+    const heading=button.dataset.releaseModal==='story'?(lang==='en'?'THE STORY BEHIND THE SONG':'DIE GESCHICHTE HINTER DEM SONG'):(lang==='en'?'LISTEN & DISCOVER':'HÖREN & ENTDECKEN');
+    const description=r.teaser[lang]||r.teaser.de;
+    const action=lang==='en'?'OPEN FULL SONG DETAILS →':'ALLE SONGDETAILS ÖFFNEN →';
+    content.innerHTML=`<div class="release-modal-content"><p class="eyebrow">${heading}</p><h2 id="release-modal-title">${r.title}</h2><p>${description}</p><p><a href="${r.details}" class="release-play" style="display:inline-block;text-decoration:none;padding:14px 22px">${action}</a></p></div>`;
+    modal.classList.add('is-open');modal.setAttribute('aria-hidden','false');document.body.classList.add('release-modal-open');
+  },true));
   render();
 })();

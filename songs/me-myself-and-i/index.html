@@ -150,5 +150,32 @@
   </footer>
 
   <script src="script.js"></script>
-</body>
+<script id="bms-song-language-fix">
+(function(){
+const en=new URLSearchParams(location.search).get('lang')==='en'||(new URLSearchParams(location.search).get('lang')!=='de'&&localStorage.getItem('bms-language')==='en');
+if(!en)return;
+document.documentElement.lang='en';
+const pairs={
+"← ZURÜCK ZU BLACKMAGIC SMEETY":"← BACK TO BLACKMAGIC SMEETY",
+"← ZURÜCK":"← BACK","▶ SONG ANHÖREN":"▶ LISTEN TO SONG",
+"Die Geschichte":"The Story","Songinhalt":"Song meaning","Songtext":"Lyrics",
+"Plattformen":"Platforms","DEUTSCH":"GERMAN","SONG ANHÖREN":"LISTEN TO SONG",
+"DIE GESCHICHTE HINTER DEM SONG":"THE STORY BEHIND THE SONG",
+"HÖREN & ENTDECKEN":"LISTEN & DISCOVER",
+"Auf YouTube, Spotify oder Amazon Music anhören.":"Listen on YouTube, Spotify or Amazon Music.",
+"Wiedergabe über YouTube":"Playback via YouTube",
+"BLACKMAGIC SMEETY · DIREKT ANHÖREN":"BLACKMAGIC SMEETY · LISTEN NOW",
+"DEUTSCH · SONGTEXTÜBERSETZUNG":"GERMAN · LYRICS TRANSLATION",
+"Schließen":"Close","Ein energiegeladener Halloween-Rock-Song mit Augenzwinkern.":"An energetic Halloween rock song with a playful twist.",
+"Über Gefühle und Geschichten, die anderen verborgen bleiben.":"About feelings and stories hidden from others."
+};
+function translate(root){const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){
+if(!n.parentElement||n.parentElement.closest('script,style,[data-no-translate]'))continue;
+const original=n.nodeValue, t=original.trim();if(pairs[t])n.nodeValue=original.replace(t,pairs[t]);
+}}
+translate(document.body);
+const content=document.getElementById('modal-content');
+if(content){new MutationObserver(()=>translate(content)).observe(content,{childList:true,subtree:true});}
+})();
+</script></body>
 </html>

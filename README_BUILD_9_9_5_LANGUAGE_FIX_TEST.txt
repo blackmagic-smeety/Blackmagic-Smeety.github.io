@@ -1,0 +1,1 @@
+BUILD 9.9.5 TEST: Songdetailseiten übernehmen bms-language aus der Hauptseite. Englische UI-Texte und drei freigegebene Storys ergänzt. Bestehende Layouts und Original-Lyrics bleiben unverändert. Browser- und Handytest erforderlich.

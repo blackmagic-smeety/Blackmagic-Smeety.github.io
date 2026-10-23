@@ -101,13 +101,15 @@
 }
 </style>
 
-</head><body>
+<style id="bms-997-four-actions">.actions{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:10px!important}.actions button{min-width:0!important}@media(max-width:600px){.actions{grid-template-columns:repeat(2,minmax(0,1fr))!important}}</style></head><body>
 <header><a class="brand" href="../../"><img src="../../assets/blackmagic-smeety-logo.png" alt="Blackmagic Smeety Logo"><span>BLACKMAGIC <b>SMEETY</b></span></a><a class="back" href="../../">← ZURÜCK ZU BLACKMAGIC SMEETY</a></header>
-<main><section class="hero"><div class="cover"><img src="cover.png" alt="Wenn es nicht von Herzen kommt – Lass es gehen (2026 Version) – Cover"></div><div class="copy"><p class="eyebrow">BLACKMAGIC SMEETY · SINGLE · 2026</p><h1>WENN ES NICHT VON HERZEN KOMMT</h1><p class="version">2026 VERSION</p><p class="tagline">Wenn es nicht von Herzen kommt – lass es gehen. Die deutsche 2026 Version trägt dieselbe Botschaft: Gefühle lassen sich nicht erzwingen. Was zählt, muss ehrlich sein und von Herzen kommen.</p><div class="meta"><span><b>RELEASE</b>29.09.2026</span><span><b>GENRE</b>Soft Rock</span><span><b>SONGWRITER</b>Markus Smeets</span><span><b>ARTIST</b>Blackmagic Smeety</span></div><button class="play" data-player>▶ SONG ANHÖREN</button><div class="actions"><button data-modal="story">STORY<small>Die Geschichte</small></button><button data-modal="stream">STREAMING<small>Plattformen</small></button></div></div></section></main>
+<main><section class="hero"><div class="cover"><img src="cover.png" alt="Wenn es nicht von Herzen kommt – Lass es gehen (2026 Version) – Cover"></div><div class="copy"><p class="eyebrow">BLACKMAGIC SMEETY · SINGLE · 2026</p><h1>WENN ES NICHT VON HERZEN KOMMT</h1><p class="version">2026 VERSION</p><p class="tagline">Wenn es nicht von Herzen kommt – lass es gehen. Die deutsche 2026 Version trägt dieselbe Botschaft: Gefühle lassen sich nicht erzwingen. Was zählt, muss ehrlich sein und von Herzen kommen.</p><div class="meta"><span><b>RELEASE</b>29.09.2026</span><span><b>GENRE</b>Soft Rock</span><span><b>SONGWRITER</b>Markus Smeets</span><span><b>ARTIST</b>Blackmagic Smeety</span></div><button class="play" data-player>▶ SONG ANHÖREN</button><div class="actions"><button data-modal="story">STORY<small>Die Geschichte</small></button><button data-modal="de">DEUTSCH<small>Songinhalt</small></button><button data-modal="lyrics">LYRICS<small>Songtext</small></button><button data-modal="stream">STREAMING<small>Plattformen</small></button></div></div></section></main>
 <div class="modal" id="modal" aria-hidden="true"><div class="shade" data-close></div><section class="dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="top"><button data-close>← ZURÜCK</button><button data-close aria-label="Schließen">×</button></div><div id="modal-content"></div></section></div>
 <div class="modal" id="player" aria-hidden="true"><div class="shade" data-player-close></div><section class="dialog player-dialog" role="dialog" aria-modal="true" aria-labelledby="player-title"><div class="top"><button data-player-close>← ZURÜCK</button><button data-player-close aria-label="Schließen">×</button></div><div class="player-head"><img src="cover.png" alt="If It Doesn't Come from the Heart Cover"><div><p class="eyebrow">BLACKMAGIC SMEETY · DIREKT ANHÖREN</p><h2 id="player-title">Wenn es nicht von Herzen kommt – Lass es gehen (2026 Version)</h2><p>Wiedergabe über YouTube</p></div></div><div class="video"><iframe id="yt" title="Wenn es nicht von Herzen kommt – Lass es gehen (2026 Version) – YouTube Player" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe></div></section></div>
 <script>
 const data={
+de:`<p class="eyebrow">DEUTSCH · SONGINHALT</p><h2 id="modal-title">Wenn es nicht von Herzen kommt</h2><p>Eine gesonderte deutsche Songtextübersetzung ist für diese deutschsprachige Version nicht erforderlich. Der Originaltext wird nach Prüfung ergänzt.</p>`,
+lyrics:`<p class="eyebrow">ORIGINAL LYRICS</p><h2 id="modal-title">Wenn es nicht von Herzen kommt</h2><p>Der vollständige geprüfte Originalsongtext liegt in den Projektdateien noch nicht vor.</p>`,
 story:`<p class="eyebrow">DIE GESCHICHTE HINTER DEM SONG</p><h2 id="modal-title">Wenn es nicht von Herzen kommt · 2026 Version</h2><p>Wenn es nicht von Herzen kommt – lass es gehen. Die deutsche 2026 Version trägt dieselbe Botschaft: Gefühle lassen sich nicht erzwingen. Was zählt, muss ehrlich sein und von Herzen kommen.</p><p><em>If It Doesn't Come from the Heart</em> gehört zu meinen früheren Songs. Die Aussage dahinter ist für mich heute genauso wichtig wie damals: Gefühle lassen sich nicht erzwingen. Was wirklich zählt, muss ehrlich sein und aus dem Herzen kommen.</p><p>Mit der <strong>2026 Version</strong> bekommt der Song ein neues musikalisches Leben. Neu interpretiert im Soft-Rock-Stil, aber mit derselben Botschaft, aus der er ursprünglich entstanden ist.</p><blockquote>“If it doesn't come from the heart, it isn't worth fighting for.”</blockquote>`,
 stream:`<p class="eyebrow">HÖREN & ENTDECKEN</p><h2 id="modal-title">Streaming</h2><p>Das offizielle Musikvideo ist bereits verfügbar. Weitere bestätigte Streaming-Links werden ergänzt, sobald sie vorliegen.</p><div class="streams"><a class="stream-link youtube" href="https://youtu.be/1KNlDpTcgsE" target="_blank" rel="noopener"><span>YouTube ↗</span></a></div>`
 };
@@ -117,4 +119,31 @@ document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>{m.classList.
 const p=document.getElementById('player'),yt=document.getElementById('yt');
 document.querySelector('[data-player]').onclick=()=>{yt.src='https://www.youtube-nocookie.com/embed/1KNlDpTcgsE?autoplay=1';p.classList.add('open');p.setAttribute('aria-hidden','false');document.body.classList.add('locked')};
 document.querySelectorAll('[data-player-close]').forEach(b=>b.onclick=()=>{p.classList.remove('open');p.setAttribute('aria-hidden','true');yt.src='';document.body.classList.remove('locked')});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.modal.open').forEach(x=>x.classList.remove('open'));yt.src='';document.body.classList.remove('locked')}});</script></body></html>
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.modal.open').forEach(x=>x.classList.remove('open'));yt.src='';document.body.classList.remove('locked')}});</script><script id="bms-song-language-fix">
+(function(){
+const en=new URLSearchParams(location.search).get('lang')==='en'||(new URLSearchParams(location.search).get('lang')!=='de'&&localStorage.getItem('bms-language')==='en');
+if(!en)return;
+document.documentElement.lang='en';
+const pairs={
+"← ZURÜCK ZU BLACKMAGIC SMEETY":"← BACK TO BLACKMAGIC SMEETY",
+"← ZURÜCK":"← BACK","▶ SONG ANHÖREN":"▶ LISTEN TO SONG",
+"Die Geschichte":"The Story","Songinhalt":"Song meaning","Songtext":"Lyrics",
+"Plattformen":"Platforms","DEUTSCH":"GERMAN","SONG ANHÖREN":"LISTEN TO SONG",
+"DIE GESCHICHTE HINTER DEM SONG":"THE STORY BEHIND THE SONG",
+"HÖREN & ENTDECKEN":"LISTEN & DISCOVER",
+"Auf YouTube, Spotify oder Amazon Music anhören.":"Listen on YouTube, Spotify or Amazon Music.",
+"Wiedergabe über YouTube":"Playback via YouTube",
+"BLACKMAGIC SMEETY · DIREKT ANHÖREN":"BLACKMAGIC SMEETY · LISTEN NOW",
+"DEUTSCH · SONGTEXTÜBERSETZUNG":"GERMAN · LYRICS TRANSLATION",
+"Schließen":"Close","Ein energiegeladener Halloween-Rock-Song mit Augenzwinkern.":"An energetic Halloween rock song with a playful twist.",
+"Über Gefühle und Geschichten, die anderen verborgen bleiben.":"About feelings and stories hidden from others."
+};
+function translate(root){const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){
+if(!n.parentElement||n.parentElement.closest('script,style,[data-no-translate]'))continue;
+const original=n.nodeValue, t=original.trim();if(pairs[t])n.nodeValue=original.replace(t,pairs[t]);
+}}
+translate(document.body);
+const content=document.getElementById('modal-content');
+if(content){new MutationObserver(()=>translate(content)).observe(content,{childList:true,subtree:true});}
+})();
+</script></body></html>

@@ -6,3 +6,6 @@
 .streams .spotify .brand-icon{color:#1ED760}
 .streams .youtube .brand-icon{color:#FF0033}
 @media (min-width:901px){html,body{height:100%;overflow:hidden!important}header{height:68px;min-height:68px;position:relative}.hero{height:calc(100vh - 68px);min-height:0!important;padding:14px 4vw!important;gap:4vw!important}.cover{height:min(70vh,600px);display:flex;align-items:center;justify-content:center}.cover img{width:auto!important;height:100%!important;max-width:100%!important;object-fit:contain!important}.copy h1{font-size:clamp(38px,4vw,68px)!important;line-height:.88!important;margin:6px 0 0!important}.version{margin:7px 0 10px!important}.tagline{font-size:15px!important;line-height:1.35!important;margin:8px 0 10px!important}.meta{margin:10px 0!important}.meta span{padding:7px 10px!important}.play{padding:11px!important}.actions{margin-top:7px!important}.actions button{padding:8px 7px!important}}
+
+/* Existing award chip visual language */
+.award-chip{display:inline-flex;align-items:center;gap:12px;padding:10px 16px;margin:8px 0;border:1px solid rgba(128,160,220,.35);border-radius:13px;background:rgba(88,87,150,.2)}.award-chip .trophy{font-size:25px}.award-chip strong,.award-chip small{display:block}.award-chip small{color:#a8b9d1;font-size:12px;margin-top:4px}
