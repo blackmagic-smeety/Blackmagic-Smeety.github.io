@@ -1,0 +1,1 @@
+Archiv-Sichtbarkeit repariert: 23 vorhandene Eintraege in register.js mit historischen Covern verknuepft. Keine neuen Archiveintraege. 2025 First Album Datum 03.04 unveraendert, da nicht unabhaengig bestaetigt. Nur bestaetigte Daten fuer OOHH und Heute bleib ich aktualisiert. Uploadfehler vermerkt. Bitte lokal Desktop und Mobil testen.
